@@ -8,6 +8,7 @@
 }
 
 .bbqs-map-div {
+    padding: 10px;
     width: 250px;
     border: solid, 1px;
     margin-right: 10px;
@@ -17,4 +18,17 @@
     align-items: center;
     text-align: center;
     justify-content: center;
+}
+
+.items-price {
+    color: green;
+    font-style: italic;
+}
+
+.add-to-order-button {
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
