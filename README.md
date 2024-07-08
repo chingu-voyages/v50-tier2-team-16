@@ -1,11 +1,11 @@
 # voyage-tasks
 
-Your project's `readme` is as important to success as your code. For 
+Your project's `readme` is as important to success as your code. For
 this reason you should put as much care into its creation and maintenance
 as you would any other component of the application.
 
 If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
+written by an experienced Chingu, be your starting point -
 [Keys to a well written README](https://tinyurl.com/yk3wubft).
 
 And before we go there's "one more thing"! Once you decide what to include
@@ -29,13 +29,8 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 
 ## Our Team
 
-Everyone on your team should add their name along with a link to their GitHub
-& optionally their LinkedIn profiles below. Do this in Sprint #1 to validate
-your repo access and to practice PR'ing with your team *before* you start
-coding!
-
-- Kristi Hwang #1: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Kristi Hwang: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Laura Gieg/Frosty: [GitHub](https://github.com/frosty8104∂) / [LinkedIn](https://www.linkedin.com/in/laura-gieg-web-designer-developer/)
+- Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka-a602242a8/)
+- Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 - Jesse Guerrero: [GitHub](https://github.com/arositen) / [LinkedIn](https://www.linkedin.com/in/jesse-guerrero-38628613b/)
-
-   ...
-- Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
