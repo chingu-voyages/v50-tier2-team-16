@@ -39,6 +39,6 @@ coding!
 =======
 - Kristi Hwang #1: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Teammate name #2: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
-
+- Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
    ...
 - Teammate name #n: [GitHub](https://github.com/ghaccountname) / [LinkedIn](https://linkedin.com/in/liaccountname)
