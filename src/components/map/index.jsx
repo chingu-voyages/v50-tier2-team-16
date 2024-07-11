@@ -1,13 +1,14 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import useSWR from 'swr';
 
-const fetcher = (...args) => fetch(...args).then(response => response.json());
+const fetcher = async (...args) => await fetch(...args).then(async response => await response.json());
 
 const map = (props) => {
 
     const url = "https://menus-api.vercel.app/";
     const { data, error } = useSWR(url, { fetcher });
     const restaurantsData = data && !error ? data["bbqs"].slice(0, 20) : [];
+
 
     return (
 
