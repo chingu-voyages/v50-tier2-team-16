@@ -30,7 +30,7 @@ export const UserProvider = ({ children }) => {
 
     //function for updating balance in json file;
     const updateBalance = (amount) => {
-        const updatedUser = { ...user, balance: user.balance + amount };
+        const updatedUser = { ...user, balance: parseInt(user.balance) + parseInt(amount) };
         setUser(updatedUser);
         localStorage.setItem('user', JSON.stringify(updatedUser));
     };
