@@ -9,7 +9,6 @@ const map = (props) => {
     const { data, error } = useSWR(url, { fetcher });
     const restaurantsData = data && !error ? data["bbqs"].slice(0, 20) : [];
 
-
     return (
 
         <MapContainer className="h-[400px] w-5/6 m-3 p-2" center={[30.239260, -97.709444]} zoom={10} scrollWheelZoom={true}>
@@ -29,7 +28,6 @@ const map = (props) => {
                                     <img className="w-48" src={r.img} alt="" />
                                 </div>
                                 <div className='flex flex-col m-2'>
-
                                     <div className='mb-5'>Known for: {r.dsc}</div>
                                     <div className='flex justify-end'>{r.rate} stars</div>
                                 </div>
