@@ -38,5 +38,5 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 ## Deployed sites:
 
 
-[https://yumspot.netlify.app](https://yumspot.netlify.app)
+[https://yumspot.netlify.app](https://yumspot.netlify.app)  
 [https://yumspotdev.netlify.app](https://yumspotdev.netlify.app)
