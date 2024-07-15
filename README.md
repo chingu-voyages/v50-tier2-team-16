@@ -34,3 +34,9 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 - Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka-a602242a8/)
 - Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 - Jesse Guerrero: [GitHub](https://github.com/arositen) / [LinkedIn](https://www.linkedin.com/in/jesse-guerrero-38628613b/)
+
+## Deployed sites:
+
+
+[https://yumspot.netlify.app](https://yumspot.netlify.app)  
+[https://yumspotdev.netlify.app](https://yumspotdev.netlify.app)
