@@ -7,6 +7,7 @@ function addCurrency() {
     const { updateBalance } = useUser();
 
     const handleSubmit = (e) => {
+        e.preventDefault();
         setAmount(e.target.value);
         updateBalance(amount);
     }
