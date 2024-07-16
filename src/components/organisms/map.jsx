@@ -1,6 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import useSWR from 'swr';
-import { useUser } from '../../contexts/UserContext';
 
 const fetcher = async (...args) => await fetch(...args).then(async response => await response.json());
 
@@ -9,8 +8,6 @@ const map = (props) => {
     const url = "https://menus-api.vercel.app/";
     const { data, error } = useSWR(url, { fetcher });
     const restaurantsData = data && !error ? data["bbqs"].slice(0, 20) : [];
-
-    const { user } = useUser();
 
     return (
 
@@ -40,8 +37,7 @@ const map = (props) => {
                 ))}
             </MapContainer>
 
-            <p>Current user: {!user ? "none" : user.username} </p>
-            <p>Current balance: {!user ? 0 : user.balance} </p>
+
         </>
     )
 }
