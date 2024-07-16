@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import LoginModal from './loginModal';
+import LoginModal from '../molecules/loginModal';
 
 
 function loginButton({ }) {

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Map from "./components/map";
-import LoginButton from "./components/loginButton";
-import LogoutButton from "./components/logoutButton";
-import AddCurrency from "./components/addCurrency";
-import { UserProvider } from "./context/UserContext";
+import Map from "./components/organisms/map";
+import LoginButton from "./components/atoms/loginButton";
+import LogoutButton from "./components/atoms/logoutButton";
+import AddCurrency from "./components/atoms/addCurrency";
+import { UserProvider } from "./contexts/UserContext";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
