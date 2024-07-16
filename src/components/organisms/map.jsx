@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import useSWR from 'swr';
-import { useUser } from '../../../contexts/UserContext';
+import { useUser } from '../../contexts/UserContext';
 
 const fetcher = async (...args) => await fetch(...args).then(async response => await response.json());
 
