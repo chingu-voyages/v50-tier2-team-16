@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
-import './App.css'
+import Map from "./components/organisms/map";
+import UserDashboard from "./components/molecules/userDashboard";
+import { UserProvider } from "./contexts/UserContext";
 import Menu from './components/MenuAPI'
+
 
 function App() {
 
   return (
     <>
-    <div>
-      <Menu />
-    </div>
+      <UserProvider>
+        <UserDashboard />
+        <Map />
+        <Menu />
+      </UserProvider>
     </>
   )
 }
