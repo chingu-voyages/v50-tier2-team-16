@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import './MenuAPI.css'
 
 async function getMenuAPI() {
@@ -14,7 +14,7 @@ async function getMenuAPI() {
   
     const data = await getMenuAPI();
 
-function Menu() {
+function Menu( {order} ) {
 
     console.log(data)
     const bbqs = data.bbqs
@@ -33,15 +33,28 @@ function Menu() {
     const sausages = data.sausages
     const steaks = data.steaks
 
+    useEffect (() => {
+
+    }, [order])
+
+    console.log(order)
+
     return (
         <div>
-            <h1>TEST</h1>
             <div className="bbqs-container">
             {bbqs.map(item => 
-                <div className="bbqs-map-div">
+                <div key={item.id} className="bbqs-map-div">
                     <h1>{item.name}</h1>
                     <img src={item.img} height="250px"/>
                     <h2>{item.country}</h2>
+                    <button className="add-to-order-button"
+                            onClick = { ()  => {order.push({
+                                id: item.id,
+                                name: item.name,
+                                img: item.img,
+                                country: item.country,
+                            })}}
+                            >Add to Order</button>
                 </div>
             )}
             </div>

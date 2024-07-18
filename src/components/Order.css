@@ -1,0 +1,25 @@
+.order-list-container {
+    width: 20rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: darkkhaki;
+}
+
+.order-title {
+    border: solid, 1px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+}
+
+.order-list-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}

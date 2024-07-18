@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.app-left {
+    margin-right: 20rem;
+}
