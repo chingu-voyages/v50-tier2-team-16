@@ -29,7 +29,7 @@ const FooterProfiles = () => {
       linkedInLink: "https://www.linkedin.com/in/jesse-guerrero-38628613b/",
     },
     {
-      name: "Val Lysenko",
+      name: "Valeriy Lysenko",
       githubLink: "https://github.com/Valeriusdev",
       linkedInLink: "https://www.linkedin.com/in/valeriylysenko/",
     },
