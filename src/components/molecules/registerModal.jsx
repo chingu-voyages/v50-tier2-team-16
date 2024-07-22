@@ -1,33 +1,33 @@
 import { useState } from 'react'
 import { useUser } from "../../contexts/UserContext"
 
-function LoginModal({ isOpen, handleClose }) {
+function registerModal({ isOpen, handleClose }) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const { login } = useUser();
+    const { register } = useUser();
 
     const inputStyles = 'mt-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-gray-500';
 
-    const handleSubmit = (e) => {
+    const handleRegisterSubmit = (e) => {
         e.preventDefault();
         console.log(username);
         console.log(password);
-        login(username, password);
+        register(username, password);
         handleClose();
     }
 
     return (
         (isOpen && <div className='absolute top-0 left-0 flex justify-center items-center h-full w-full bg-black bg-opacity-25 z-30'>
-            <div className='relative flex justify-center items-center h-1/2 w-1/2 bg-slate-600'>
+            <div className='relative flex justify-center items-center h-1/2 w-3/5 bg-slate-600'>
                 <button className='absolute top-0 right-2 text-white text-2xl' onClick={handleClose}>
                     X
                 </button>
                 <form
                     target=""
-                    onSubmit={handleSubmit}
+                    onSubmit={handleRegisterSubmit}
                 >
-                    <label htmlFor="name" className='text-white'>Enter your user name: </label>
+                    <label htmlFor="name" className='text-white'>Create a username: </label>
                     <input id="name" className={inputStyles} type="text" placeholder="Name" onChange={(e) => setUsername(e.target.value)} required />
 
                     <label htmlFor="password" className='text-white'>Create a password: </label>
@@ -45,4 +45,4 @@ function LoginModal({ isOpen, handleClose }) {
     )
 }
 
-export default LoginModal
+export default registerModal
