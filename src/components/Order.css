@@ -1,0 +1,111 @@
+.order-list-container {
+    width: 35rem;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: burlywood;
+    border: solid 2px;
+    align-items: start;
+}
+
+.order-title {
+    font-size: 4rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.order-list-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.order-map-div {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    width: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+}
+
+.order-map-div-left {
+    flex: 1;
+}
+
+.order-map-div-right {
+    flex: 1;
+    text-align: left;
+    align-items: start;
+    margin-left: 20px;
+}
+
+.order-name {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.order-qty-div {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    text-align: left;
+    justify-content: start;
+}
+
+.order-qty {
+    width: 20px;
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+}
+
+.subtract-qty-button {
+    width: 20px;
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+}
+
+.add-qty-button {
+    width: 20px;
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+}
+
+.order-remove-button {
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.items-price {
+    color: green;
+    font-style: italic;
+}
+
+.order-total {
+    font-size: 2rem;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.clear-all-button {
+    background-color: lightgray;
+    padding: 5px;
+    border: solid, 1px;
+    margin-top: 5px;
+}
