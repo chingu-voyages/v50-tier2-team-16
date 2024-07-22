@@ -1,4 +1,5 @@
 import { useUser } from '../../contexts/UserContext';
+import RegisterButton from "../atoms/registerButton";
 import LoginButton from "../atoms/loginButton";
 import LogoutButton from "../atoms/logoutButton";
 import AddCurrency from "../atoms/addCurrency";
@@ -10,6 +11,7 @@ function userDashboard({ }) {
     return (
 
         <div className='m-2 w-5/6 border-black black border-2'>
+            <RegisterButton />
             <LoginButton />
             <LogoutButton />
             <AddCurrency />

@@ -17,6 +17,12 @@ export const UserProvider = ({ children }) => {
         }
     }, []);
 
+    const register = (username, password) => {
+        const newUser = { username, password, balance: 0 };
+        setUser(newUser);
+        localStorage.setItem('user', JSON.stringify(newUser));
+    }
+
     const login = (username) => {
         const newUser = { username, balance: 100 };
         setUser(newUser);
@@ -33,11 +39,12 @@ export const UserProvider = ({ children }) => {
         const updatedUser = { ...user, balance: parseInt(user.balance) + parseInt(amount) };
         setUser(updatedUser);
         localStorage.setItem('user', JSON.stringify(updatedUser));
+
     };
 
 
     return (
-        <UserContext.Provider value={{ useUser, user, login, logout, updateBalance }}>
+        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance }}>
             {children}
         </UserContext.Provider>
     );
