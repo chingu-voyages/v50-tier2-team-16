@@ -20,10 +20,9 @@ function userDashboard({ }) {
             {user && <div>
                 <LogoutButton />
                 <AddCurrency />
+                <p>Current user: {!user ? "none" : user.username} </p>
+                <p>Current balance: {!user ? 0 : user.balance} </p>
             </div>}
-
-            <p>Current user: {!user ? "none" : user.username} </p>
-            <p>Current balance: {!user ? 0 : user.balance} </p>
         </div>
     )
 }

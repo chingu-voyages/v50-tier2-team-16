@@ -4,6 +4,7 @@ import { useUser } from "../../contexts/UserContext"
 function LoginModal({ isOpen, handleClose }) {
 
     const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const { login } = useUser();
 
     const inputStyles = 'mt-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-gray-500';
@@ -11,7 +12,8 @@ function LoginModal({ isOpen, handleClose }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(username);
-        login(username);
+        console.log(password);
+        login(username, password);
         handleClose();
     }
 
@@ -27,6 +29,9 @@ function LoginModal({ isOpen, handleClose }) {
                 >
                     <label htmlFor="name" className='text-white'>Enter your user name: </label>
                     <input id="name" className={inputStyles} type="text" placeholder="Name" onChange={(e) => setUsername(e.target.value)} required />
+
+                    <label htmlFor="password" className='text-white'>Create a password: </label>
+                    <input id="password" className={inputStyles} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
 
                     <button
                         type="submit"
