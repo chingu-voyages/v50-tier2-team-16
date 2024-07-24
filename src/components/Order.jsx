@@ -1,5 +1,4 @@
 import {React, useState, useEffect} from 'react';
-import Rating from '@mui/material/Rating'
 import './Order.css'
 
 function OrderList( {order, setOrder} ) {
@@ -23,7 +22,6 @@ function OrderList( {order, setOrder} ) {
             <div className="order-list-items">
                 {order.map(item =>
                     <div id={item.id} className="order-map-div">
-                        {/* <Rating defaultValue={item.rate} /> */}
                         <img className="order-map-div-left"
                              src={item.img} width="100px"/>
                         <div className="order-map-div-right">
@@ -33,8 +31,9 @@ function OrderList( {order, setOrder} ) {
                                         onClick={() => {order.find((a) => a.id === item.id) &&
                                             order.qty + 1;}}>-</button>
                                 <p className="order-qty">{item.qty}</p>
-                                {/* <button className="add-qty-button"
-                                        onClick={() => updateQuantity()}>+</button> */}
+                                <button className="add-qty-button"
+                                        // onClick={() => updateQuantity()}
+                                >+</button>
                             </div>
                             <button className="order-remove-button"
                                     onClick={() => {

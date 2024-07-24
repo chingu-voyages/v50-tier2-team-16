@@ -1,11 +1,11 @@
 .order-list-container {
-    width: 35rem;
+    width: 30rem;
     height: 100%;
     position: fixed;
     right: 0;
     display: flex;
     flex-direction: column;
-    background-color: burlywood;
+    background-color: antiquewhite;
     border: solid 2px;
     align-items: start;
 }
@@ -108,4 +108,5 @@
     padding: 5px;
     border: solid, 1px;
     margin-top: 5px;
+    margin-left: 10px;
 }
