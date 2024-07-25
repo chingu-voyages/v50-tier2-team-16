@@ -8,7 +8,6 @@ function addCurrency() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setAmount(e.target.value);
         updateBalance(amount);
     }
 
