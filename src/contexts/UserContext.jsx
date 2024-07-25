@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import { v4 as uuid } from "uuid";
 
 const UserContext = createContext();
 
@@ -8,43 +9,56 @@ export function useUser() {
 
 export const UserProvider = ({ children }) => {
 
+    const [userList, setUserList] = useState([]);
     const [user, setUser] = useState(null);
 
-    if (!localStorage.getItem('users')) {
-        console.log('here')
-        const newUserList = [{ id: 0, username: 'startup', password: 'startpass', balance: 0, order: [] }];
-        localStorage.setItem('users', JSON.stringify(newUserList));
+    //initialize user list in localStorage
+    if (!localStorage.getItem('userList')) {
+        const newUserList = [{ id: 0, username: "startup", password: "startpass", balance: 0, order: [] }];
+        setUserList([...userList, newUser]);
+        localStorage.setItem('userList', JSON.stringify(newUserList));
     };
 
+    //if user was logged in last session, use them as active account
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
+        const storedUser = JSON.parse(localStorage.getItem('currentUser'));
         if (storedUser) {
             setUser(storedUser);
         }
     }, []);
 
     const register = (username, password) => {
-        const newUser = { username, password, balance: 0 };
-        setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+
+        let userNameIsTaken = userList.find(u => u.username === username);
+
+        if (!userNameIsTaken) {
+            const newUser = { "id": uuid(), "username": username, "password": password, "balance": 0, "order": [] };
+            setUserList([...userList, newUser]);
+            localStorage.setItem('userList', JSON.stringify([...userList, newUser]));
+            setUser(newUser);
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+        } else {
+            alert("username already taken");
+        }
+
     }
 
     const login = (username) => {
         const newUser = { username, balance: 100 };
         setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+        localStorage.setItem('currentUser', JSON.stringify(newUser));
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('user');
+        localStorage.removeItem('currentUser');
     };
 
     //function for updating balance in json file;
     const updateBalance = (amount) => {
         const updatedUser = { ...user, balance: parseInt(user.balance) + parseInt(amount) };
         setUser(updatedUser);
-        localStorage.setItem('user', JSON.stringify(updatedUser));
+        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
 
     };
 
