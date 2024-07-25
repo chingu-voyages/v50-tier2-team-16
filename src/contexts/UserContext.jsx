@@ -10,6 +10,12 @@ export const UserProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
 
+    if (!localStorage.getItem('users')) {
+        console.log('here')
+        const newUserList = [{ id: 0, username: 'startup', password: 'startpass', balance: 0, order: [] }];
+        localStorage.setItem('users', JSON.stringify(newUserList));
+    };
+
     useEffect(() => {
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (storedUser) {
