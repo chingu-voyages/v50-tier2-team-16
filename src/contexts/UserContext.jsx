@@ -23,6 +23,12 @@ export const UserProvider = ({ children }) => {
         if (storedUser) {
             setUser(storedUser);
         }
+
+        const storedUserList = JSON.parse(localStorage.getItem('userList'));
+        if (storedUserList) {
+            setUserList(storedUserList);
+        }
+
     }, []);
 
     const register = (username, password) => {
