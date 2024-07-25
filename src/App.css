@@ -1,0 +1,9 @@
+.app-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.app-left {
+    margin-right: 40rem;
+}
