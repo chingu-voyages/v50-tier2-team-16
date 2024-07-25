@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
     //initialize user list in localStorage
     if (!localStorage.getItem('userList')) {
         const newUserList = [{ id: 0, username: "startup", password: "startpass", balance: 0, order: [] }];
-        setUserList([...userList, newUser]);
+        setUserList([...userList, newUserList]);
         localStorage.setItem('userList', JSON.stringify(newUserList));
     };
 
@@ -28,11 +28,10 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     const register = (username, password) => {
-
         let userNameIsTaken = userList.find(u => u.username === username);
 
         if (!userNameIsTaken) {
-            const newUser = { "id": uuid(), "username": username, "password": password, "balance": 0, "order": [] };
+            let newUser = { "id": uuid(), "username": username, "password": password, "balance": 0, "order": [] };
             setUserList([...userList, newUser]);
             localStorage.setItem('userList', JSON.stringify([...userList, newUser]));
             setUser(newUser);
@@ -40,18 +39,25 @@ export const UserProvider = ({ children }) => {
         } else {
             alert("username already taken");
         }
-
     }
 
-    const login = (username) => {
-        const newUser = { username, balance: 100 };
-        setUser(newUser);
-        localStorage.setItem('currentUser', JSON.stringify(newUser));
+    const login = (username, password) => {
+
+        let isValidCredentials = userList.find(u => ((u.username === username) && (u.password === password)));
+        console.log(isValidCredentials);
+
+        if (isValidCredentials) {
+            setUser(isValidCredentials);
+            localStorage.setItem('currentUser', JSON.stringify(isValidCredentials));
+        } else {
+            alert("login failed, please try again")
+        }
+
     };
 
     const logout = () => {
         setUser(null);
-        localStorage.removeItem('currentUser');
+        localStorage.setItem('currentUser', null);
     };
 
     //function for updating balance in json file;
