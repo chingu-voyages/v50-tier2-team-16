@@ -16,7 +16,7 @@ function LoginModal({ isOpen, handleClose }) {
     }
 
     return (
-        (isOpen && <div className='absolute top-0 left-0 flex justify-center items-center h-full w-full bg-black bg-opacity-25 z-30'>
+        (isOpen && <div className='absolute top-0 left-0 flex justify-center items-center h-[100vh] w-full bg-black bg-opacity-25 z-30'>
             <div className='relative flex justify-center items-center h-1/2 w-1/2 bg-slate-600'>
                 <button className='absolute top-0 right-2 text-white text-2xl' onClick={handleClose}>
                     X
