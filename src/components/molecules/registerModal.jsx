@@ -11,8 +11,6 @@ function RegisterModal({ isOpen, handleClose }) {
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    console.log(username);
-    console.log(password);
     register(username, password);
     handleClose();
   };

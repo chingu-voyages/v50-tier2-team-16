@@ -11,8 +11,6 @@ function LoginModal({ isOpen, handleClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(username);
-        console.log(password);
         login(username, password);
         handleClose();
     }
