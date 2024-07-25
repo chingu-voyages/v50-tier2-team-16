@@ -14,9 +14,7 @@ export const UserProvider = ({ children }) => {
 
     //initialize user list in localStorage
     if (!localStorage.getItem('userList')) {
-        const newUserList = [{ id: 0, username: "startup", password: "startpass", balance: 0, order: [] }];
-        setUserList([...userList, newUserList]);
-        localStorage.setItem('userList', JSON.stringify(newUserList));
+        localStorage.setItem('userList', JSON.stringify(userList));
     };
 
     //if user was logged in last session, use them as active account
@@ -44,7 +42,6 @@ export const UserProvider = ({ children }) => {
     const login = (username, password) => {
 
         let isValidCredentials = userList.find(u => ((u.username === username) && (u.password === password)));
-        console.log(isValidCredentials);
 
         if (isValidCredentials) {
             setUser(isValidCredentials);
@@ -56,18 +53,26 @@ export const UserProvider = ({ children }) => {
     };
 
     const logout = () => {
+
         setUser(null);
         localStorage.setItem('currentUser', null);
     };
 
     //function for updating balance in json file;
     const updateBalance = (amount) => {
-        const updatedUser = { ...user, balance: parseInt(user.balance) + parseInt(amount) };
+
+        const updatedUser = { ...user, "balance": parseInt(user.balance) + parseInt(amount) };
+
+        let userListUpdateIndex = userList.findIndex(u => (u.id === user.id));
+        let newUserList = userList;
+        newUserList[userListUpdateIndex] = updatedUser;
+
         setUser(updatedUser);
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+        setUserList(newUserList);
+        localStorage.setItem('userList', JSON.stringify(newUserList))
 
     };
-
 
     return (
         <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance }}>
