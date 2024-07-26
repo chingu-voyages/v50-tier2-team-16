@@ -1,5 +1,5 @@
 import { useState } from "react";
-import NavButton from "../../atoms/Button.nav";
+import NavButton from "../../atoms/header/Button.nav";
 import RegisterModal from "../../molecules/registerModal";
 
 const RegisterButton = () => {
