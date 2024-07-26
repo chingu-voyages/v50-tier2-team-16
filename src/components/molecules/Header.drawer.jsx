@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/drawer";
 import Hamburger from "../atoms/header/Hamburger";
 
-export function DrawerDemo() {
+export function HeaderDrawer() {
   const [goal, setGoal] = React.useState(350);
 
   function onClick(adjustment) {
