@@ -8,7 +8,7 @@ import { HeaderDrawer } from "../molecules/Header.drawer";
 const Header = () => {
   const { user } = useUser();
   return (
-    <div className="w-full flex items-center justify-between gap-4 z-50">
+    <div className="w-full px-4 flex items-center justify-between gap-4 z-50">
       <h1>LOGO</h1>
 
       {!user && (
