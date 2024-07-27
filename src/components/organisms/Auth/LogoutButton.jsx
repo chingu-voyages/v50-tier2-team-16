@@ -1,5 +1,5 @@
 import { useUser } from "../../../contexts/UserContext";
-import NavButton from "../../atoms/Button.nav";
+import NavButton from "../../atoms/header/Button.nav";
 
 const LogoutButton = () => {
   const { logout } = useUser();
