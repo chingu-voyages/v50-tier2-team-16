@@ -18,6 +18,10 @@ module.exports = {
     },
     extend: {
       colors: {
+        "app-yellow": "#FFEDD9",
+        "header-color": "#d1ac82",
+        "header-navButton": "#82A7D1",
+        "header-navButton-hover": "#7297C1",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
