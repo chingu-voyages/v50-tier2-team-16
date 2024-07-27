@@ -1,11 +1,19 @@
 import { states } from '../../../../states.jsx'
+import { useLocation } from "../../../contexts/LocationContext"
 
-export default function State(){
+export default function StateDropdown(){
+
+    const { selectState } = useLocation()
+
+    function selected(e){
+        e.preventDefault()
+        selectState(e.target.value)
+    }
 
     const statesDropdown = () => {
-        console.log(states)
-        states.map(state => {
-            <option value={state.Abbreviation}>{state.State}</option>
+        // console.log(states)
+        return states.map((state) => {
+            return <option value={state.Abbreviation}>{state.State}</option>
         })
     }
 
@@ -13,8 +21,8 @@ export default function State(){
         <form>
             <label>
                 State:
-                <select>
-                    {statesDropdown}
+                <select onChange={selected} required>
+                    {statesDropdown()}
                 </select>
             </label>
         </form>

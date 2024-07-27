@@ -1,4 +1,4 @@
-export const foodtypes = () => 
+export const foodtypes =
     [
         "bbqs",
         "best-foods",

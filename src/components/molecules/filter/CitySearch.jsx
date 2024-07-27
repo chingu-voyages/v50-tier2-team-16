@@ -1,26 +1,24 @@
 import React from 'react'
-// import { getMenuAPI } from '../../MenuAPI'
+import { useLocation } from "../../../contexts/LocationContext"
 
 export default function CitySearch() {
 
-  const [searchQuery, setSearchQuery] = React.useState()
+  const { selectCity } = useLocation()
 
-    function search(formData) {
-      const query = formData.get("query");
-      setSearchQuery(query)
+    function search(e) {
+      e.preventDefault()
+      const formData = new FormData(e.target)
+      const query = formData.get("query")
+      selectCity(query)
     }
 
-    // React.useEffect(()=>{
-    //   getMenuAPI()
-    //   // getByCity(searchQuery){
-    //   //   const city = data.country.includes(searchQuery)
-    //   // }
-    // },[searchQuery])
-    
     return (
-      <form action={search}>
-        <input name="query" placeholder="90210"/>
-        <button type="submit">Search</button>
+      <form onSubmit={search}>
+        <label>
+          City:
+          <input name="query" placeholder=" 90210" />
+        </label>
+        <button type="submit"  className="m-2 p-2 bg-slate-200 rounded-md">Search</button>
       </form>
     )
   }

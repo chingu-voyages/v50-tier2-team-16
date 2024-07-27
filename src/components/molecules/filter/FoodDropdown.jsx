@@ -1,20 +1,28 @@
 import { foodtypes } from '../../../../foodtypes.jsx'
+import { useLocation } from "../../../contexts/LocationContext"
 
 export default function FoodDropdown(){
 
+    const {selectFoodtype}  = useLocation()
+
+    function selected(e){
+        // console.log('e.target', e.target)
+        e.preventDefault()
+        selectFoodtype(e.target.value)
+    }
+
     const foodtypesDropdown = () => {
-        console.log(foodtypes)
-        foodtypes.map(food => {
-            <option value={food}>{food}</option>
+        // console.log(foodtypes)
+        return foodtypes.map((food, index) => {
+            return <option key = {index} value={food}>{food}</option>
         })
     }
 
     return(
         <form>
             <label>
-                First, choose your food category:
-                <select>
-                    {foodtypesDropdown}
+                <select onChange={selected}>
+                    {foodtypesDropdown()}
                 </select>
             </label>
         </form>
