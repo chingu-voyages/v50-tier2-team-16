@@ -22,7 +22,7 @@ export function HeaderDrawer() {
           <Hamburger />
         </button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="bg-app-yellow">
         <div className="mx-auto w-full max-w-sm">
           <DrawerHeader>
             <DrawerTitle>Order</DrawerTitle>
