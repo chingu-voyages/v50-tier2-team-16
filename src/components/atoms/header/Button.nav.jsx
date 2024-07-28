@@ -1,7 +1,7 @@
 const NavButton = ({ children, onClick }) => {
   return (
     <button
-      className="min-w-15 h-10 m-2 p-2 bg-slate-200 rounded-md"
+      className="min-w-24 h-12 m-2 p-2 text-white font-bold border-b-4 border-blue-500 bg-header-navButton hover:bg-header-navButton-hover rounded-lg"
       onClick={onClick}
     >
       {children}

@@ -17,10 +17,12 @@ function App() {
         <div className="app-left">
           <UserProvider>
             <Header />
-            <UserDashboard />
-            <Map />
-            <Menu order={order} setOrder={setOrder} />
-            <Footer />
+            <div className="pt-44 sm:pt-28">
+              <UserDashboard />
+              <Map />
+              <Menu order={order} setOrder={setOrder} />
+              <Footer />
+            </div>
           </UserProvider>
         </div>
         <OrderList order={order} setOrder={setOrder} />
