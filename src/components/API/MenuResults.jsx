@@ -54,14 +54,14 @@ export function MenuResults() {
  
 
     return (
-        <div>
+        <div className="grid grid-cols-4 gap-4">
 
              <h1>Results:</h1>
           
              {filteredData.map((item, index) => (
-                <div key={index} className="data-map-div">
+                <div key={index} className="data-map-div ">
                     <h1>{item.name}</h1>
-                    <img src={item.img} height="250px" alt={item.name}></img>
+                    <img className = "h-auto max-w-lg rounded-lg" src={item.img} height="250px" alt={item.name}></img>
                     <h2>{item.country}</h2>
                 </div>
              ))}
