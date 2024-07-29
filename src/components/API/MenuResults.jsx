@@ -22,7 +22,6 @@ export function MenuResults() {
       let results= []
         function FilterByCountry(){
             if (data){
-                // console.log('data', [...Object.values(data)].flat())
                 results = [...Object.values(data)].flat().filter((item)=> {
                     
                     return item.country === `${city}, ${state}`
@@ -34,23 +33,7 @@ export function MenuResults() {
                
                 setFilteredData(FilterByCountry())
             }, [foodtype, state, city, data])
-                // console.log('data', data)
-                // console.log('results', results)
-                // console.log(Array.isArray(`${results}`));
-            
-            // console.log('data', data)
-      
-
-    //     function FilterByFoodtype(){
-    //         if(data){
-    //             const filteredFoodtype = data
-    //             if(data[foodtype] === foodtype){
-    //                 return  filteredFoodtype
-    //             }
-    //             setData(filteredFoodtype)
-    //         }
-        
-    // FilterByFoodtype() 
+               
  
 
     return (
