@@ -23,13 +23,14 @@ export function MenuResults() {
         function FilterByCountry(){
             if (data){
                 results = [...Object.values(data)].flat().filter((item)=> {
-                    
+
                     return item.country === `${city}, ${state}`
                 })} else {
                     results =[]
                 }
                     return results
                 }
+
                
                 setFilteredData(FilterByCountry())
             }, [foodtype, state, city, data])
