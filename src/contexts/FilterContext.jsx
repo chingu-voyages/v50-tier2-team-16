@@ -1,16 +1,16 @@
 import React from 'react'
 import { createContext, useContext } from 'react'
 
-const LocationContext = createContext()
+const FilterContext = createContext()
 
 export function useLocation() {
-    // const locContext = useContext(LocationContext)
+    // const locContext = useContext(FilterContext)
     // const {foodtype, state, city, selectState} = locContext
     // return locContext
-    return useContext(LocationContext)
+    return useContext(FilterContext)
 }
 
-export const LocationProvider = ({ children }) => {
+export const FilterProvider = ({ children }) => {
     const [foodtype, setFoodtype] = React.useState(null)
     const [state, setState] = React.useState("CA")
     const [city, setCity] = React.useState("Los Angeles")
@@ -32,8 +32,8 @@ export const LocationProvider = ({ children }) => {
     }
 
     return (
-        <LocationContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity }}> 
+        <FilterContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity }}> 
             { children }
-        </LocationContext.Provider>
+        </FilterContext.Provider>
     )
 }

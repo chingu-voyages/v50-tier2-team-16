@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { getMenuAPI } from './getMenuAPI'
 import './MenuResults.css'
-import { useLocation } from "../../contexts/LocationContext"
+import { useLocation } from "../../contexts/FilterContext"
 
 export function MenuResults() {
     const [data, setData] = useState([])

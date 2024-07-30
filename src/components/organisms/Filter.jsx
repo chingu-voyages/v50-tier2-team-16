@@ -2,7 +2,7 @@ import StateDropdown  from '../molecules/filter/StateDropdown'
 import CitySearch from '../molecules/filter/CitySearch'
 import FoodDropdown from '../molecules/filter/FoodDropdown'
 
-export default function LocationFilter(){
+export default function Filter(){
     return(
         <div className='m-2 w-5/6 border-black black border-2 py-2 px-2 grid grid-cols-3 gap-1'>
             <div className='firstFilter'>

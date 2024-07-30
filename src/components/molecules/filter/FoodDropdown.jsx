@@ -1,5 +1,5 @@
 import { foodtypes } from '../../../../foodtypes.jsx'
-import { useLocation } from "../../../contexts/LocationContext"
+import { useLocation } from "../../../contexts/FilterContext"
 
 export default function FoodDropdown(){
 

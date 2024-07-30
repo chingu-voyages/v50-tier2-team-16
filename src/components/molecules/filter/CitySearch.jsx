@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from "../../../contexts/LocationContext"
+import { useLocation } from "../../../contexts/FilterContext"
 
 export default function CitySearch() {
 

@@ -1,5 +1,5 @@
 import { states } from '../../../../states.jsx'
-import { useLocation } from "../../../contexts/LocationContext"
+import { useLocation } from "../../../contexts/FilterContext"
 
 export default function StateDropdown(){
 

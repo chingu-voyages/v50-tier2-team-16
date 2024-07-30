@@ -1,8 +1,8 @@
 import Map from "./components/organisms/map";
 import UserDashboard from "./components/molecules/userDashboard";
-import LocationFilter from "./components/organisms/LocationFilter";
+import Filter from "./components/organisms/Filter";
 import { UserProvider } from "./contexts/UserContext";
-import { LocationProvider } from "./contexts/LocationContext";
+import { FilterProvider } from "./contexts/FilterContext";
 import MenuResults from "./components/API/MenuResults";
 import Footer from "./components/organisms/Footer";
 
@@ -11,13 +11,13 @@ function App() {
   return (
     <>
       <UserProvider>
-      <LocationProvider>
+      <FilterProvider>
         <UserDashboard />
-        <LocationFilter />
+        <Filter />
         <Map />
         <MenuResults />
         <Footer />
-      </LocationProvider>
+      </FilterProvider>
       </UserProvider>
     </>
   );
