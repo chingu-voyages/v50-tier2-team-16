@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .header-base {
+    @apply flex items-center gap-2;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
