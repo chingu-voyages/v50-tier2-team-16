@@ -3,11 +3,6 @@ import './Order.css'
 
 function OrderList( {order, setOrder} ) {
 
-    // const updateQuantity = () => {
-    //     order.filter((a) => a.id === item.id) &&
-    //     order.qty + 1;
-    // };
-
     console.log(order)
 
     let totalPrice = 0;
@@ -21,19 +16,20 @@ function OrderList( {order, setOrder} ) {
             <h1 className="order-title">Order</h1>
             <div className="order-list-items">
                 {order.map(item =>
-                    <div id={item.id} className="order-map-div">
+                    <div key={item.id} className="order-map-div">
                         <img className="order-map-div-left"
                              src={item.img} width="100px"/>
                         <div className="order-map-div-right">
                             <h1 className="order-name">{item.name}</h1>
                             <div className="order-qty-div">
                                 <button className="subtract-qty-button"
-                                        onClick={() => {order.find((a) => a.id === item.id) &&
-                                            order.qty + 1;}}>-</button>
+                                        >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
-                                        // onClick={() => updateQuantity()}
-                                >+</button>
+                                        onClick={() => { const test = order.find(a => a.id === item.id)
+                                            console.log(test.qty)
+                                        test.qty = test.qty + 1}}>
+                                +</button>
                             </div>
                             <button className="order-remove-button"
                                     onClick={() => {
