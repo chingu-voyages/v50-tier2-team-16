@@ -1,4 +1,4 @@
-import { states } from '../../../../states.jsx'
+import { states } from '../../../../data/states.jsx'
 import { useLocation } from "../../../contexts/FilterContext"
 
 export default function StateDropdown(){
