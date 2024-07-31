@@ -3,8 +3,9 @@ import { useUser } from "@/contexts/UserContext";
 import LoginButton from "./Auth/LoginButton";
 import LogoutButton from "./Auth/LogoutButton";
 import RegisterButton from "./Auth/RegisterButton";
-import { HeaderDrawer } from "../molecules/Header.drawer";
+import { HeaderDrawer } from "../molecules/drawer/Header.drawer";
 import Logo from "../atoms/header/Logo";
+import Username from "../atoms/header/Username";
 
 const Header = () => {
   const { user } = useUser();
@@ -13,15 +14,16 @@ const Header = () => {
       <Logo />
 
       {!user && (
-        <div className="flex">
+        <div className="header-base">
+          <Username />
           <RegisterButton />
           <LoginButton />
-          <HeaderDrawer />
         </div>
       )}
 
       {user && (
-        <div className="flex">
+        <div className="header-base">
+          <Username />
           <LogoutButton />
           <HeaderDrawer />
         </div>

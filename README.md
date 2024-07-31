@@ -31,7 +31,7 @@ Meeting Agenda templates (located in the `/docs` directory in this repo):
 
 - Kristi Hwang: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Laura Gieg/Frosty: [GitHub](https://github.com/frosty8104∂) / [LinkedIn](https://www.linkedin.com/in/laura-gieg-web-designer-developer/)
-- Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka-a602242a8/)
+- Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka)
 - Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
 - Jesse Guerrero: [GitHub](https://github.com/arositen) / [LinkedIn](https://www.linkedin.com/in/jesse-guerrero-38628613b/)
 
