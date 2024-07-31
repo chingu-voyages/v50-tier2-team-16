@@ -8,6 +8,7 @@ export default function StateDropdown(){
     function selected(e){
         e.preventDefault()
         selectState(e.target.value)
+        console.log('state-dropdown', e.value)
     }
 
     const statesDropdown = () => {

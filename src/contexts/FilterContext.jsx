@@ -15,7 +15,7 @@ export function useLocation() {
 export const FilterProvider = ({ children }) => {
     const [foodtype, setFoodtype] = React.useState(foodtypes[0])
     const [state, setState] = React.useState(states[0])
-    const [city, setCity] = React.useState("Los Angeles")
+    const [city, setCity] = React.useState("")
 
     React.useEffect(()=> {
         selectFoodtype()

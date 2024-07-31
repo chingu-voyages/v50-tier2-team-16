@@ -23,11 +23,23 @@ export function MenuResults() {
         function FilterByCountry(){
             if (data){
                 results = [...Object.values(data)].flat().filter((item)=> {
-                    return item.country === `${city}, ${state}`
-                })} else {
-                    results =[]
+                    if (item.country === `${city}, ${state}`){
+                        return item.country
+                    } else if (item.country) {
+                        const splitCountry = item.country.split(', ')
+                        console.log('splitCountry', splitCountry)
+                        if (splitCountry[0] === city || splitCountry[1] === state){
+                            return item.country
+                        }
+                    } else {
+                        return results=[]
+                    }
+                    })
+                    
                 }
+                    console.log('results', results)
                     return results
+
                 }
 
 
