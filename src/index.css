@@ -6,6 +6,9 @@
   .header-base {
     @apply flex items-center gap-2;
   }
+  .currency-input {
+    @apply w-32 rounded-sm bg-gray-100 px-5 py-3 placeholder-gray-500;
+  }
 }
 
 @layer base {
