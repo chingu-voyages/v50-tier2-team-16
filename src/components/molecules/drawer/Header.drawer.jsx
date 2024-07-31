@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/drawer";
 import Hamburger from "../../atoms/header/Hamburger";
 import CheckoutButton from "@/components/atoms/drawer/Button.checkout";
-import UserAccount from "./UserDashboard";
+import UserAccount from "./UserAccount";
 
 export function HeaderDrawer() {
   return (
