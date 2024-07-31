@@ -18,7 +18,6 @@ const Header = () => {
           <Username />
           <RegisterButton />
           <LoginButton />
-          <HeaderDrawer />
         </div>
       )}
 
