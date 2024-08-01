@@ -1,5 +1,6 @@
 export const foodtypes =
-    [
+    [   
+        "Select a food category",
         "bbqs",
         "best-foods",
         "breads",

@@ -1,4 +1,4 @@
-import { states } from '../../../../states.jsx'
+import { states } from '../../../../data/states.jsx'
 import { useLocation } from "../../../contexts/FilterContext"
 
 export default function StateDropdown(){
@@ -8,6 +8,7 @@ export default function StateDropdown(){
     function selected(e){
         e.preventDefault()
         selectState(e.target.value)
+        console.log('state-dropdown', e.value)
     }
 
     const statesDropdown = () => {

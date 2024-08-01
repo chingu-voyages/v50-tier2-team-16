@@ -23,13 +23,25 @@ export function MenuResults() {
         function FilterByCountry(){
             if (data){
                 results = [...Object.values(data)].flat().filter((item)=> {
-
-                    return item.country === `${city}, ${state}`
-                })} else {
-                    results =[]
+                    if (item.country === `${city}, ${state}`){
+                        return item.country
+                    } else if (item.country) {
+                        const splitCountry = item.country.split(', ')
+                        console.log('splitCountry', splitCountry)
+                        if (splitCountry[0] === city || splitCountry[1] === state){
+                            return item.country
+                        }
+                    } else {
+                        return results=[]
+                    }
+                    })
+                    
                 }
+                    console.log('results', results)
                     return results
+
                 }
+
 
                
                 setFilteredData(FilterByCountry())
@@ -47,6 +59,7 @@ export function MenuResults() {
                     <h1>{item.name}</h1>
                     <img className = "h-auto max-w-lg rounded-lg" src={item.img} height="250px" alt={item.name}></img>
                     <h2>{item.country}</h2>
+                    <h2>{item.dsc}</h2>
                 </div>
              ))}
 
