@@ -2,11 +2,29 @@ import React, {useState} from 'react';
 import { getMenuAPI } from './getMenuAPI'
 import './MenuResults.css'
 import { useLocation } from "../../contexts/FilterContext"
+import { ContentCutOutlined, SettingsSuggestRounded } from '@mui/icons-material';
 
 export function MenuResults() {
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
     const { foodtype, state, city } = useLocation()
+
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+
+    // console.log(user.order)
+
+    const [order , setOrder] = useState([])
+
+    console.log(order)
+
+    function getOrder() {
+        if (user) {
+            setOrder(user.order)
+        } else {
+            null
+        }
+      getOrder();
+    }
 
     React.useEffect(()=> {
         async function getResults() {
@@ -47,6 +65,22 @@ export function MenuResults() {
                     <h1>{item.name}</h1>
                     <img className = "h-auto max-w-lg rounded-lg" src={item.img} height="250px" alt={item.name}></img>
                     <h2>{item.country}</h2>
+                        {!user ? null : <button className="add-to-order-button"
+                            onClick = { ()  => { const orderExist = order.find(a => a.id === item.id) 
+                                if(!orderExist) {setOrder([
+                                    ...order,
+                                    {
+                                    id: item.id,
+                                    name: item.name,
+                                    img: item.img,
+                                    country: item.country,
+                                    price: item.price,
+                                    rate: item.rate,
+                                    qty: 1,
+                                }])} else {null}
+                            localStorage.setItem('order', order)
+                        }}
+                            >Add to Order</button> }
                 </div>
              ))}
 

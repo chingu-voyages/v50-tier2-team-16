@@ -12,12 +12,9 @@ import Header from "./components/organisms/Header";
 
 
 function App() {
-  const [order, setOrder] = useState([]);
 
   return (
     <>
-
-
       <div className="app-container">
         <div className="app-left">
           <UserProvider>
@@ -27,15 +24,14 @@ function App() {
               <UserDashboard />
               <Filter />
               <Map />
-              <MenuResults order={order} setOrder={setOrder} />
+              <MenuResults />
               <Footer />
             </div>
           </FilterProvider>
           </UserProvider>
         </div>
-        <OrderList order={order} setOrder={setOrder} />
+        <OrderList />
       </div>
-
     </>
   );
 }
