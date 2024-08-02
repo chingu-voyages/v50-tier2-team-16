@@ -64,24 +64,39 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem('currentUser', null);
     };
 
+    const updateUserinLocalStorage = (userToUpdate) => {
+
+        let userListUpdateIndex = userList.findIndex(u => (u.id === user.id));
+        let newUserList = userList;
+        newUserList[userListUpdateIndex] = userToUpdate;
+        setUser(userToUpdate);
+        localStorage.setItem('currentUser', JSON.stringify(userToUpdate));
+        setUserList(newUserList);
+        localStorage.setItem('userList', JSON.stringify(newUserList))
+    }
+
     //function for updating balance in json file;
     const updateBalance = (amount) => {
 
         const updatedUser = { ...user, "balance": parseInt(user.balance) + parseInt(amount) };
-
-        let userListUpdateIndex = userList.findIndex(u => (u.id === user.id));
-        let newUserList = userList;
-        newUserList[userListUpdateIndex] = updatedUser;
-
-        setUser(updatedUser);
-        localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-        setUserList(newUserList);
-        localStorage.setItem('userList', JSON.stringify(newUserList))
+        updateUserinLocalStorage(updatedUser);
 
     };
 
+    const updateOrder = (newOrder) => {
+
+        const updatedUser = { ...user, "order": [...user.order, newOrder] };
+        updateUserinLocalStorage(updatedUser);
+
+    }
+
+    const clearOrder = () => {
+        const updatedUser = { ...user, "order": [] };
+        updateUserinLocalStorage(updatedUser)
+    }
+
     return (
-        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance }}>
+        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance, updateOrder, clearOrder }}>
             {children}
         </UserContext.Provider>
     );
