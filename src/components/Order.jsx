@@ -1,9 +1,22 @@
 import {React, useState, useEffect} from 'react';
 import './Order.css'
 
-function OrderList( {order, setOrder} ) {
+function OrderList() {
+
+    const [order , setOrder] = useState([])
+
+    const user = JSON.parse(localStorage.getItem('currentUser'))
 
     console.log(order)
+
+    function getOrder() {
+        if (user) {
+            setOrder(user.order)
+        } else {
+            null
+        }
+      getOrder();
+    }
 
     let totalPrice = 0;
 

@@ -11,10 +11,10 @@ import Footer from "./components/organisms/Footer";
 import Header from "./components/organisms/Header";
 
 function App() {
-  const [order, setOrder] = useState([]);
 
   return (
     <>
+<<<<<<< HEAD
        <UserProvider>
        <FilterProvider>
       <div className="app-container">
@@ -30,12 +30,29 @@ function App() {
               </div>
             
          
+=======
+      <div className="app-container">
+        <div className="app-left">
+          <UserProvider>
+            <FilterProvider>
+              <Header />
+              <UserDashboard />
+              <Filter />
+              <Map />
+              <MenuResults />
+              <Footer />
+            </FilterProvider>
+          </UserProvider>
+>>>>>>> 89efe7fb895619a5c99cefe181c69fc17cdc6eaa
         </div>
-        <OrderList order={order} setOrder={setOrder} />
+        <OrderList />
       </div>
+<<<<<<< HEAD
      
       </FilterProvider>
       </UserProvider>
+=======
+>>>>>>> 89efe7fb895619a5c99cefe181c69fc17cdc6eaa
     </>
   );
 }

@@ -9,7 +9,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import Hamburger from "../atoms/header/Hamburger";
+import Hamburger from "../../atoms/header/Hamburger";
+import CheckoutButton from "@/components/atoms/drawer/Button.checkout";
+import UserAccount from "./UserAccount";
 
 export function HeaderDrawer() {
   return (
@@ -25,7 +27,8 @@ export function HeaderDrawer() {
             <DrawerTitle>Order</DrawerTitle>
             <DrawerDescription>Description</DrawerDescription>
           </DrawerHeader>
-
+          <UserAccount />
+          <CheckoutButton>Check out</CheckoutButton>
           <DrawerFooter>
             <DrawerClose asChild>
               <Button variant="outline">Cancel</Button>
