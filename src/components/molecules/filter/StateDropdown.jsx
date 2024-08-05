@@ -3,7 +3,7 @@ import { useLocation } from "../../../contexts/FilterContext"
 
 export default function StateDropdown(){
 
-    const { selectState } = useLocation()
+    const { selectState, state } = useLocation()
 
     function selected(e){
         e.preventDefault()
@@ -13,8 +13,8 @@ export default function StateDropdown(){
 
     const statesDropdown = () => {
         // console.log(states)
-        return states.map((state) => {
-            return <option value={state.Abbreviation}>{state.State}</option>
+        return states.map((state, index) => {
+            return <option key={index} value={state.Abbreviation}>{state.State}</option>
         })
     }
 
@@ -22,7 +22,7 @@ export default function StateDropdown(){
         <form>
             <label>
                 State:
-                <select onChange={selected} required>
+                <select onChange={selected} defaultValue={state} required>
                     {statesDropdown()}
                 </select>
             </label>

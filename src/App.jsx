@@ -15,10 +15,11 @@ function App() {
 
   return (
     <>
+       <UserProvider>
+       <FilterProvider>
       <div className="app-container">
         <div className="app-left">
-          <UserProvider>
-            <FilterProvider>
+         
               <Header />
               <div className="pt-44 sm:pt-28">
                 <UserDashboard />
@@ -27,11 +28,14 @@ function App() {
                 <MenuResults order={order} setOrder={setOrder} />
                 <Footer />
               </div>
-            </FilterProvider>
-          </UserProvider>
+            
+         
         </div>
         <OrderList order={order} setOrder={setOrder} />
       </div>
+     
+      </FilterProvider>
+      </UserProvider>
     </>
   );
 }

@@ -17,9 +17,9 @@ export const FilterProvider = ({ children }) => {
     const [state, setState] = React.useState(states[0])
     const [city, setCity] = React.useState("")
 
-    React.useEffect(()=> {
-        selectFoodtype()
-    }, [foodtype])
+    // React.useEffect(()=> {
+    //     selectFoodtype()
+    // }, [foodtype])
 
     const selectFoodtype = (foodtype) => {
         setFoodtype(foodtype)

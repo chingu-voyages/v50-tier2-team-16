@@ -8,6 +8,7 @@ export function MenuResults() {
   const [filteredData, setFilteredData] = useState([]);
   const { foodtype, state, city } = useLocation();
   let result = []
+
   
 
   React.useEffect(() => {
@@ -22,64 +23,56 @@ export function MenuResults() {
     // console.log("city", city);
 
     function FilterData() {
-      
-      setFilteredData(ByCountry())
-      setFilteredData(ByFoodtype())
+      setData(ByCountry())
+      // setData(ByFoodtype())
       // return data
     }
-   
-    console.log("filteredData", filteredData);
-   
-    FilterData();
+    setFilteredData(FilterData())
+
   }, [foodtype, state, city]);
 
   function ByCountry() {
    
     if (data) {
+
       result = [...Object.values(data)].flat().filter((item) => {
-        if (item.country === `${city}, ${state}`) {
-          return item.country;
-        } else if (item.country) {
+      
+        item.country === `${city}, ${state}` 
+          return ;
+    
           const splitCountry = item.country.split(", ");
-          // console.log("splitCountry[0]", splitCountry[0]);
-          // console.log("splitCountry[1]", splitCountry[1]);
-          console.log('city', city)
-          console.log('state', state)
+          console.log("splitCountry", splitCountry);
          
-          if (splitCountry[0] === city || splitCountry[1] === state) {
+          let test =  splitCountry.every(loc => {
+            loc[0] === city || loc[1] === state 
             console.log('state or city registered')
-            // console.log("state", state);
-            return item.country;
-          }
-        } else {
-            console.log('nada')
-          return result;
+     
+            });  
         }
-        return result;
-      });
-    }
+      )
   }
 
-  function ByFoodtype() {
+  // function ByFoodtype() {
     
-    if (data) {
-      result = [...Object.values(data)].flat().filter((item) => {
-        if (item[foodtype] === foodtype) {
-          return item[foodtype];
-        }
-        return result;
-      });
-    }
-  }
-  console.log('city', city)
+  //   if (data) {
+  //     result = [...Object.values(data)].flat().filter((item) => {
+  //       if (item[foodtype] === foodtype) {
+  //         return item[foodtype];
+  //       }
+  //       return result;
+  //     });
+  //   }
+  // }
+  // console.log('city', city)
   console.log("data", data);
   console.log("filteredData", filteredData);
 
   return (
     <div className="grid grid-cols-4 gap-4">
       <h1>Results:</h1>
+      {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
 
-      {filteredData && filteredData.map((item, index) => (
+      {filteredData && filteredData?.map((item, index) => (
         <div key={index} className="data-map-div ">
           <h1>{item.name}</h1>
           <img
