@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useUser } from "../../contexts/UserContext";
+import CloseIcon from '@mui/icons-material/Close';
 
 function RegisterModal({ isOpen, handleClose }) {
   const [username, setUsername] = useState("");
@@ -18,14 +19,14 @@ function RegisterModal({ isOpen, handleClose }) {
   return (
     isOpen && (
       <div className="absolute top-0 left-0 flex justify-center items-center h-[100vh] w-full bg-black bg-opacity-25 z-30">
-        <div className="relative flex justify-center items-center h-1/2 w-4/5 bg-app-yellow">
+        <div className="relative flex justify-center items-center h-1/2 bg-app-yellow">
           <button
             className="absolute top-0 right-2 text-black text-2xl"
             onClick={handleClose}
           >
-            X
+            <CloseIcon />
           </button>
-          <form target="" onSubmit={handleRegisterSubmit} className="m-2 p-2">
+          <form target="" onSubmit={handleRegisterSubmit} className="my-2 mx-5 p-2">
             <label htmlFor="name" className="text-black my-2">
               Create a username:{" "}
             </label>
