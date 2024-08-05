@@ -90,7 +90,7 @@ export const UserProvider = ({ children }) => {
 
     }
 
-    const decrementOrer = (item) => {
+    const decrementOrder = (item) => {
         const updatedUser = {};
         updateUserinLocalStorage(updatedUser)
     }
@@ -101,7 +101,7 @@ export const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance, updateOrder, clearOrder, decrementOrer }}>
+        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance, updateOrder, clearOrder, decrementOrder }}>
             {children}
         </UserContext.Provider>
     );

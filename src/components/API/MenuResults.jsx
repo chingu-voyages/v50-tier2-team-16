@@ -8,10 +8,12 @@ import { ContentCutOutlined, SettingsSuggestRounded } from '@mui/icons-material'
 import Rating from '@mui/material/Rating'
 
 export function MenuResults() {
-    const [data, setData] = useState([])
-    const user = JSON.parse(localStorage.getItem('currentUser'))
-    const [order, setOrder] = useState([])
+
     const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
+    const { user, updateOrder } = useUser();
+
+    const [data, setData] = useState([])
+
     let result = []
 
     React.useEffect(() => {
@@ -71,15 +73,6 @@ export function MenuResults() {
         }
     }
 
-    function getOrder() {
-        if (user) {
-            setOrder(user.order)
-        } else {
-            null
-        }
-        getOrder();
-    }
-
     return (
 
         <div className="grid grid-cols-4 gap-4">
@@ -96,19 +89,8 @@ export function MenuResults() {
                     <p className="items-price">${item.price}</p>
                     {!user ? null : <button className="add-to-order-button"
                         onClick={() => {
-                            const orderExist = order.find(a => a.id === item.id)
+                            const orderExist = user.order.find(a => a.id === item.id)
                             if (!orderExist) {
-                                setOrder([
-                                    ...order,
-                                    {
-                                        id: item.id,
-                                        name: item.name,
-                                        img: item.img,
-                                        country: item.country,
-                                        price: item.price,
-                                        rate: item.rate,
-                                        qty: 1,
-                                    }])
                                 updateOrder({
                                     id: item.id,
                                     name: item.name,
