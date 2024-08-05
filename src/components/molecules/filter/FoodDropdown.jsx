@@ -3,7 +3,7 @@ import { useLocation } from "../../../contexts/FilterContext"
 
 export default function FoodDropdown(){
 
-    const {selectFoodtype}  = useLocation()
+    const {selectFoodtype, foodtype}  = useLocation()
 
     function selected(e){
         // console.log('e.target', e.target)
@@ -21,7 +21,7 @@ export default function FoodDropdown(){
     return(
         <form>
             <label>
-                <select onChange={selected}>
+                <select onChange={selected} defaultValue={foodtype}>
                     {foodtypesDropdown()}
                 </select>
             </label>

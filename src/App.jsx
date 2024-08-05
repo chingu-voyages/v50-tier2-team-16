@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import Map from "./components/organisms/map";
 import UserDashboard from "./components/organisms/userDashboard";
@@ -10,11 +10,11 @@ import MenuResults from "./components/API/MenuResults";
 import Footer from "./components/organisms/Footer";
 import Header from "./components/organisms/Header";
 
-
 function App() {
 
   return (
     <>
+
       <div className="app-container">
         <div className="app-left">
           <UserProvider>
@@ -30,6 +30,7 @@ function App() {
         </div>
         <OrderList />
       </div>
+
     </>
   );
 }
