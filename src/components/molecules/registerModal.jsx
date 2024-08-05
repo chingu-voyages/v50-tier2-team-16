@@ -7,7 +7,7 @@ function RegisterModal({ isOpen, handleClose }) {
   const { register } = useUser();
 
   const inputStyles =
-    "mt-5 w-full rounded-lg bg-primary-300 px-5 py-3 placeholder-gray-500";
+    "mt-3 w-full rounded-lg bg-white px-5 py-3 placeholder-gray-500";
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
@@ -18,15 +18,15 @@ function RegisterModal({ isOpen, handleClose }) {
   return (
     isOpen && (
       <div className="absolute top-0 left-0 flex justify-center items-center h-[100vh] w-full bg-black bg-opacity-25 z-30">
-        <div className="relative flex justify-center items-center h-1/2 w-3/5 bg-slate-600">
+        <div className="relative flex justify-center items-center h-1/2 w-4/5 bg-app-yellow">
           <button
-            className="absolute top-0 right-2 text-white text-2xl"
+            className="absolute top-0 right-2 text-black text-2xl"
             onClick={handleClose}
           >
             X
           </button>
-          <form target="" onSubmit={handleRegisterSubmit}>
-            <label htmlFor="name" className="text-white">
+          <form target="" onSubmit={handleRegisterSubmit} className="m-2 p-2">
+            <label htmlFor="name" className="text-black my-2">
               Create a username:{" "}
             </label>
             <input
@@ -38,7 +38,7 @@ function RegisterModal({ isOpen, handleClose }) {
               required
             />
 
-            <label htmlFor="password" className="text-white">
+            <label htmlFor="password" className="text-black my-5">
               Create a password:{" "}
             </label>
             <input
@@ -52,7 +52,7 @@ function RegisterModal({ isOpen, handleClose }) {
 
             <button
               type="submit"
-              className="mt-5 rounded-lg bg-white px-10 py-3 "
+              className="min-w-24 h-12 my-4 py-2 text-white font-bold border-b-4 border-blue-500 bg-header-navButton hover:bg-header-navButton-hover rounded-lg"
             >
               Submit
             </button>
