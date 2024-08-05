@@ -19,14 +19,14 @@ function RegisterModal({ isOpen, handleClose }) {
   return (
     isOpen && (
       <div className="absolute top-0 left-0 flex justify-center items-center h-[100vh] w-full bg-black bg-opacity-25 z-30">
-        <div className="relative flex justify-center items-center h-1/2 bg-app-yellow">
+        <div className="relative flex justify-center items-center rounded-lg bg-app-yellow">
           <button
             className="absolute top-0 right-2 text-black text-2xl"
             onClick={handleClose}
           >
             <CloseIcon />
           </button>
-          <form target="" onSubmit={handleRegisterSubmit} className="my-2 mx-5 p-2">
+          <form target="" onSubmit={handleRegisterSubmit} className="my-8 mx-5 p-2">
             <label htmlFor="name" className="text-black my-2">
               Create a username:{" "}
             </label>
