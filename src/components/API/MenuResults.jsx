@@ -22,18 +22,24 @@ export function MenuResults() {
         // console.log("city", city);
 
         function FilterData() {
-            return ByCountry();
+            return FilterDownByType(ByCountry());
         }
+
+        function FilterDownByType(intermediateArray) {
+            return ByFoodType(intermediateArray);
+        }
+
         setFilteredData(FilterData())
 
     }, [foodtype, state, city]);
 
     function ByCountry() {
 
-        if (data) {
+        if (true) {
 
             result = [...Object.values(data)].flat().filter((item, index) => {
-                if (index < (1455)) {
+
+                if (index < [...Object.values(data)].flat().length - 1) {
                     const splitCountry = item.country.split(", ");
                     let cityOrStateMatched = (splitCountry[0] === (`${ city }`) || splitCountry[1] === (`${ state }`));
                     return (cityOrStateMatched);
@@ -41,6 +47,25 @@ export function MenuResults() {
             })
         }
         return result;
+    }
+
+    function ByFoodType(cityFilteredArray) {
+        if (foodtype !== "Select a food category") {
+
+            return cityFilteredArray.filter((item) => {
+
+                for (let i = 0; i < data[`${ foodtype }`].length; i++) {
+                    if (item.id === data[`${ foodtype }`][i].id) {
+                        return true
+                    }
+                }
+                return false;
+            })
+
+        } else {
+            return cityFilteredArray
+        }
+
     }
 
     console.log("data", data);
