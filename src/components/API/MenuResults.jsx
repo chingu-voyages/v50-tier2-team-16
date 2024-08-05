@@ -4,12 +4,10 @@ import "./MenuResults.css";
 import { useLocation } from "../../contexts/FilterContext";
 
 export function MenuResults() {
+
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]);
-    const { foodtype, state, city } = useLocation();
+    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
     let result = []
-
-
 
     React.useEffect(() => {
         async function getResults() {
@@ -23,48 +21,52 @@ export function MenuResults() {
         // console.log("city", city);
 
         function FilterData() {
-            setData(ByCountry())
-            // setData(ByFoodtype())
-            // return data
+            return FilterDownByType(ByCountry());
         }
+
+        function FilterDownByType(intermediateArray) {
+            return ByFoodType(intermediateArray);
+        }
+
         setFilteredData(FilterData())
 
     }, [foodtype, state, city]);
 
     function ByCountry() {
 
-        if (data) {
+        if (true) {
 
-            result = [...Object.values(data)].flat().filter((item) => {
+            result = [...Object.values(data)].flat().filter((item, index) => {
 
-                item.country === `${ city }, ${ state }`
-
-
-                const splitCountry = item.country.split(", ");
-                console.log("splitCountry", splitCountry);
-
-                let test = splitCountry.every(loc => {
-                    loc[0] === city || loc[1] === state
-                    console.log('state or city registered')
-
-                });
-            }
-            )
+                if (index < [...Object.values(data)].flat().length - 1) {
+                    const splitCountry = item.country.split(", ");
+                    let cityOrStateMatched = (splitCountry[0] === (`${ city }`) || splitCountry[1] === (`${ state }`));
+                    return (cityOrStateMatched);
+                }
+            })
         }
+        return result;
     }
 
-    // function ByFoodtype() {
+    function ByFoodType(cityFilteredArray) {
+        if (foodtype !== "Select a food category") {
 
-    //   if (data) {
-    //     result = [...Object.values(data)].flat().filter((item) => {
-    //       if (item[foodtype] === foodtype) {
-    //         return item[foodtype];
-    //       }
-    //       return result;
-    //     });
-    //   }
-    // }
-    // console.log('city', city)
+            return cityFilteredArray.filter((item) => {
+
+                for (let i = 0; i < data[`${ foodtype }`].length; i++) {
+                    if (item.id === data[`${ foodtype }`][i].id) {
+                        return true
+                    }
+                }
+                return false;
+            })
+
+        } else {
+            return cityFilteredArray
+        }
+
+    }
+
     console.log("data", data);
     console.log("filteredData", filteredData);
 

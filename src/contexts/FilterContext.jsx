@@ -16,6 +16,7 @@ export const FilterProvider = ({ children }) => {
     const [foodtype, setFoodtype] = React.useState(foodtypes[0])
     const [state, setState] = React.useState(states[0])
     const [city, setCity] = React.useState("")
+    const [filteredData, setFilteredData] = React.useState([]);
 
     // React.useEffect(()=> {
     //     selectFoodtype()
@@ -34,8 +35,8 @@ export const FilterProvider = ({ children }) => {
     }
 
     return (
-        <FilterContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity }}> 
-            { children }
+        <FilterContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity, filteredData, setFilteredData }}>
+            {children}
         </FilterContext.Provider>
     )
 }
