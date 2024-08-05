@@ -4,12 +4,11 @@ import "./MenuResults.css";
 import { useLocation } from "../../contexts/FilterContext";
 
 export function MenuResults() {
+
     const [data, setData] = useState([]);
     const [filteredData, setFilteredData] = useState([]);
     const { foodtype, state, city } = useLocation();
     let result = []
-
-
 
     React.useEffect(() => {
         async function getResults() {
@@ -23,9 +22,7 @@ export function MenuResults() {
         // console.log("city", city);
 
         function FilterData() {
-            setData(ByCountry())
-            // setData(ByFoodtype())
-            // return data
+            return ByCountry();
         }
         setFilteredData(FilterData())
 
@@ -35,36 +32,17 @@ export function MenuResults() {
 
         if (data) {
 
-            result = [...Object.values(data)].flat().filter((item) => {
-
-                item.country === `${ city }, ${ state }`
-
-
-                const splitCountry = item.country.split(", ");
-                console.log("splitCountry", splitCountry);
-
-                let test = splitCountry.every(loc => {
-                    loc[0] === city || loc[1] === state
-                    console.log('state or city registered')
-
-                });
-            }
-            )
+            result = [...Object.values(data)].flat().filter((item, index) => {
+                if (index < (1455)) {
+                    const splitCountry = item.country.split(", ");
+                    let cityOrStateMatched = (splitCountry[0] === (`${ city }`) || splitCountry[1] === (`${ state }`));
+                    return (cityOrStateMatched);
+                }
+            })
         }
+        return result;
     }
 
-    // function ByFoodtype() {
-
-    //   if (data) {
-    //     result = [...Object.values(data)].flat().filter((item) => {
-    //       if (item[foodtype] === foodtype) {
-    //         return item[foodtype];
-    //       }
-    //       return result;
-    //     });
-    //   }
-    // }
-    // console.log('city', city)
     console.log("data", data);
     console.log("filteredData", filteredData);
 
