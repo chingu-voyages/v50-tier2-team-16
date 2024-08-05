@@ -6,8 +6,7 @@ import { useLocation } from "../../contexts/FilterContext";
 export function MenuResults() {
 
     const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState([]);
-    const { foodtype, state, city } = useLocation();
+    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
     let result = []
 
     React.useEffect(() => {
