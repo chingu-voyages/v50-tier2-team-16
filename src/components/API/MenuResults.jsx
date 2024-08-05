@@ -9,11 +9,10 @@ import Rating from '@mui/material/Rating'
 export function MenuResults() {
     const [data, setData] = useState([])
     const [filteredData, setFilteredData] = useState([])
-    const { foodtype, state, city } = useLocation()
     const user = JSON.parse(localStorage.getItem('currentUser'))
     const [order , setOrder] = useState([])
-
-    console.log(order)
+    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
+    let result = []
 
     function getOrder() {
         if (user) {
@@ -24,9 +23,8 @@ export function MenuResults() {
       getOrder();
     }
 
-    const [data, setData] = useState([]);
-    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
-    let result = []
+
+    
 
     React.useEffect(() => {
         async function getResults() {
