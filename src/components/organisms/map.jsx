@@ -1,5 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import useSWR from 'swr';
+import { useLocation } from '@/contexts/FilterContext';
 
 const fetcher = async (...args) => await fetch(...args).then(async response => await response.json());
 
@@ -9,16 +10,18 @@ const map = (props) => {
     const { data, error } = useSWR(url, { fetcher });
     const restaurantsData = data && !error ? data["bbqs"].slice(0, 20) : [];
 
+    const { filteredData } = useLocation();
+
     return (
 
         <>
-            <MapContainer className="h-[400px] w-5/6 m-3 p-2 z-0" center={[30.239260, -97.709444]} zoom={10} scrollWheelZoom={true}>
+            <MapContainer className="h-[400px] w-5/6 m-3 p-2 z-0" center={[30.239260, -97.709444]} zoom={2} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {restaurantsData.map(r => (
-                    <Marker key={r.id} position={[r.latitude, r.longitude]} >
+                {[...filteredData].map((r, index) => (
+                    <Marker key={`map component-${ r.id } - ${ index }`} position={[r.latitude, r.longitude]} >
                         <Popup>
                             <div className='flex flex-col'>
                                 <div className='text-lg font-bold m-2'>{r.name}</div>

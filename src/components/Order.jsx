@@ -5,7 +5,7 @@ import { useUser } from '../contexts/UserContext';
 
 function OrderList() {
 
-    const { user, clearOrder } = useUser();
+    const { user, clearOrder, decrementOrder } = useUser();
     const [order, setOrder] = useState([])
 
     // const user = JSON.parse(localStorage.getItem('currentUser'))

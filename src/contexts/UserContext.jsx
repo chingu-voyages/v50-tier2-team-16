@@ -90,13 +90,18 @@ export const UserProvider = ({ children }) => {
 
     }
 
+    const decrementOrer = (item) => {
+        const updatedUser = {};
+        updateUserinLocalStorage(updatedUser)
+    }
+
     const clearOrder = () => {
         const updatedUser = { ...user, "order": [] };
         updateUserinLocalStorage(updatedUser)
     }
 
     return (
-        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance, updateOrder, clearOrder }}>
+        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance, updateOrder, clearOrder, decrementOrer }}>
             {children}
         </UserContext.Provider>
     );
