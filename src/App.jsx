@@ -14,23 +14,21 @@ function App() {
 
   return (
     <>
-
-      <div className="app-container">
-        <div className="app-left">
-          <UserProvider>
-            <FilterProvider>
+      <UserProvider>
+        <FilterProvider>
+          <div className="app-container">
+            <div className="app-left">
               <Header />
               <UserDashboard />
               <Filter />
               <Map />
               <MenuResults />
               <Footer />
-            </FilterProvider>
-          </UserProvider>
-        </div>
-        <OrderList />
-      </div>
-
+            </div>
+            <OrderList />
+          </div>
+        </FilterProvider>
+      </UserProvider>
     </>
   );
 }
