@@ -4,6 +4,7 @@ import './Order.css'
 function OrderList() {
 
     const [order , setOrder] = useState([])
+    const [balance, setBalance] = useState()
 
     const user = JSON.parse(localStorage.getItem('currentUser'))
 
@@ -16,6 +17,15 @@ function OrderList() {
             null
         }
       getOrder();
+    }
+
+    function getBalance() {
+        if (user) {
+            setBalance(user.balance)
+        } else {
+            null
+        }
+      getBalance()
     }
 
     let totalPrice = 0;
@@ -59,9 +69,14 @@ function OrderList() {
                 )}
             </div>
             <button className="clear-all-button"
-                    onClick={() => {
-                        setOrder([])}}
-            >Clear All</button>
+                    onClick={() => { getBalance();
+                        if (balance < totalPrice) {
+                            alert("insufficient funds!")
+                        } else {
+                            setOrder([])
+                            alert("purchase successful!")
+                        }}}
+            >Checkout</button>
             <h1 className="order-total">Total: ${totalPrice} </h1>
         </div>
     );
