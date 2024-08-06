@@ -8,7 +8,7 @@ const map = (props) => {
     return (
 
         <>
-            <MapContainer className="h-[400px] w-5/6 m-3 p-2 z-0" center={[30.239260, -97.709444]} zoom={2} scrollWheelZoom={true}>
+            <MapContainer className="h-[450px] w-full m-3 p-2 z-0" center={[39.50, -98.35]} zoom={4} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
