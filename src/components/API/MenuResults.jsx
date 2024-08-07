@@ -82,29 +82,27 @@ export function MenuResults() {
             {filteredData && filteredData?.map((item, index) => (
                 <div key={index} className="data-map-div ">
                     <h1>{item.name}</h1>
-                    <Rating defaultValue={item.rate} />
+                    <Rating value={item.rate} />
                     <img src={item.img} height="250px" alt={item.name}></img>
                     <h2>{item.country}</h2>
                     <h2>{item.dsc}</h2>
                     <p className="items-price">${item.price}</p>
-                    {!user ? null : <button className="add-to-order-button"
-                        onClick={() => {
-                            const orderExist = user.order.find(a => a.id === item.id)
-                            if (!orderExist) {
-                                updateOrder({
-                                    id: item.id,
-                                    name: item.name,
-                                    img: item.img,
-                                    country: item.country,
-                                    price: item.price,
-                                    rate: item.rate,
-                                    qty: 1,
-                                })
-                            } else { null }
-                            // localStorage.setItem('order', order)
-                        }}
-                    >Add to Order</button>}
-
+                        {!user ? null : <button className="add-to-order-button"
+                            onClick={() => {
+                                const orderExist = user.order.find(a => a.id === item.id)
+                                if (!orderExist) {
+                                    updateOrder({
+                                        id: item.id,
+                                        name: item.name,
+                                        img: item.img,
+                                        country: item.country,
+                                        price: item.price,
+                                        rate: item.rate,
+                                        qty: 1,
+                                    })
+                                } else { null }
+                            }}
+                        >Add to Order</button>}
                 </div>
             ))}
         </div>

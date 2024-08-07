@@ -7,6 +7,8 @@ function OrderList() {
 
     const { user, clearOrder, decrementOrder } = useUser();
     const [order, setOrder] = useState([])
+    const [balance, setBalance] = useState()
+    const [item, setItem] = useState({})
 
     // const user = JSON.parse(localStorage.getItem('currentUser'))
 
@@ -18,6 +20,15 @@ function OrderList() {
     //     }
     //     getOrder();
     // }
+
+    function getBalance() {
+        if (user) {
+            setBalance(user.balance)
+        } else {
+            null
+        }
+      getBalance()
+    }
 
     let totalPrice = 0;
 
@@ -39,11 +50,21 @@ function OrderList() {
                             <h1 className="order-name">{item.name}</h1>
                             <div className="order-qty-div">
                                 <button className="subtract-qty-button"
-                                >-</button>
+                                    onClick={() => {
+                                        const test = user.order.find(a => a.id === item.id)
+                                        console.log(test.qty)
+                                        if (test.qty > 0) {
+                                        test.qty = test.qty - 1
+                                        } else if (test.qty = 0) {
+                                            setOrder(user.order.filter(a => a.id === item.id))
+                                            decrementOrder(order)
+                                        } else {null}
+                                        }}
+                                    >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
                                     onClick={() => {
-                                        const test = order.find(a => a.id === item.id)
+                                        const test = user.order.find(a => a.id === item.id)
                                         console.log(test.qty)
                                         test.qty = test.qty + 1
                                     }}>
@@ -52,10 +73,11 @@ function OrderList() {
                             <button className="order-remove-button"
                                 onClick={() => {
                                     setOrder(
-                                        order.filter(a =>
+                                        user.order.filter(a =>
                                             a.id !== item.id
                                         )
-                                    )
+                                    );
+                                    decrementOrder(order)
                                 }}
                             >Remove</button>
 
@@ -64,11 +86,15 @@ function OrderList() {
                 )}
             </div>
             <button className="clear-all-button"
-                onClick={() => {
-                    setOrder([])
-                    clearOrder()
-                }}
-            >Clear All</button>
+                onClick={() => {getBalance();
+                    if (balance < totalPrice) {
+                        alert("insufficient funds!")
+                    } else {
+                        // setOrder([])
+                        clearOrder()
+                        alert("purchase successful!")
+                    }}}
+                >Checkout</button>
             <h1 className="order-total">Total: ${totalPrice} </h1>
         </div>
     );

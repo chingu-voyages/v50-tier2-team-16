@@ -90,8 +90,8 @@ export const UserProvider = ({ children }) => {
 
     }
 
-    const decrementOrder = (item) => {
-        const updatedUser = {};
+    const decrementOrder = () => {
+        const updatedUser = { ...user, "order": [...user.order] };
         updateUserinLocalStorage(updatedUser)
     }
 
