@@ -1,31 +1,23 @@
-# voyage-tasks
+# YumSpot
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+<picture>
+  <img alt="YumSpot Logo" src="https://github.com/chingu-voyages/v50-tier2-team-16/tree/dev/src/assets/logo.png" width="400">
+</picture>
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+## Overview
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Features
 
-> Own it & Make it your Own!
+## Running this project locally
 
-## Team Documents
+ 1. Clone this project locally 
+ 2. `cd` into the project directory
+ 3. Run `npm install` in your bash / command line
+ 4. Run `npm run dev` in your bash / command line
+ 5. Search for the most Yumspot in your area!
 
-You may find these helpful as you work together to organize your project.
+## Dependancies
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
-
-Meeting Agenda templates (located in the `/docs` directory in this repo):
-
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
 
 ## Our Team
 
