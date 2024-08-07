@@ -21,7 +21,7 @@ export default function FoodDropdown(){
     return(
         <form>
             <label>
-                <select onChange={selected} defaultValue={foodtype}>
+                <select className="m-0" onChange={selected} defaultValue={foodtype}>
                     {foodtypesDropdown()}
                 </select>
             </label>

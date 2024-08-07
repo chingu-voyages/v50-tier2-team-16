@@ -6,18 +6,38 @@
 
 ## Overview
 
+Yumspot is a food ordering map for restaurants around the world. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
+
 ## Features
 
-## Running this project locally
+**Filter functionality**: Filter through the results by your location (city and/or state) and preferred foodtype. If your chosen city is not available in the chosen state, the filter will include results for that city in other states. The foodtype filter can be applied independent of the location filter and vice versa, in the case you would like to just apply one filter.
+
+## Running the project 
 
  1. Clone this project locally 
  2. `cd` into the project directory
- 3. Run `npm install` in your bash / command line
- 4. Run `npm run dev` in your bash / command line
- 5. Search for the most Yumspot in your area!
+ 3.To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+    ```bash
+    npm install 
+    npm run dev
+    ```
+ 4. Search for the most Yumspot in your area!
 
-## Dependancies
+## Dependencies
 
+React
+Tailwind
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Our Team
 
