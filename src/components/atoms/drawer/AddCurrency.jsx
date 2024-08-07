@@ -22,6 +22,8 @@ function AddCurrency() {
             id="moneyInput"
             className="currency-input"
             type="number"
+            min="0"
+            max="1000"
             onChange={(e) => setAmount(e.target.value)}
             required
           />

@@ -1,5 +1,9 @@
 # YumSpot
 
+<picture>
+  <img alt="YumSpot Logo" src="https://github.com/chingu-voyages/v50-tier2-team-16/tree/dev/src/assets/logo.png" width="400">
+</picture>
+
 ## Overview
 
 Yumspot is a food ordering map for restaurants around the world. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
@@ -10,11 +14,15 @@ Yumspot is a food ordering map for restaurants around the world. Simply filter y
 
 ## Running the project 
 
-To run the app on your local device, make sure to install the appropriate packages and run using the following command:
-```bash
-npm install 
-npm run dev
-```
+ 1. Clone this project locally 
+ 2. `cd` into the project directory
+ 3.To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+    ```bash
+    npm install 
+    npm run dev
+    ```
+ 4. Search for the most Yumspot in your area!
+
 ## Dependencies
 
 React
