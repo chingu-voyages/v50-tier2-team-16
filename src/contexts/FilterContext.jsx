@@ -6,9 +6,7 @@ import { foodtypes } from '../../data/foodtypes.jsx'
 const FilterContext = createContext()
 
 export function useLocation() {
-    // const locContext = useContext(FilterContext)
-    // const {foodtype, state, city, selectState} = locContext
-    // return locContext
+
     return useContext(FilterContext)
 }
 
@@ -17,10 +15,6 @@ export const FilterProvider = ({ children }) => {
     const [state, setState] = React.useState(states[0])
     const [city, setCity] = React.useState("")
     const [filteredData, setFilteredData] = React.useState([]);
-
-    // React.useEffect(()=> {
-    //     selectFoodtype()
-    // }, [foodtype])
 
     const selectFoodtype = (foodtype) => {
         setFoodtype(foodtype)

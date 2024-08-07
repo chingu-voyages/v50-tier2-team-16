@@ -1,31 +1,35 @@
-# voyage-tasks
+# YumSpot
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Overview
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+Yumspot is a food ordering map for restaurants around the world. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Features
 
-> Own it & Make it your Own!
+**Filter functionality**: Filter through the results by your location (city and/or state) and preferred foodtype. If your chosen city is not available in the chosen state, the filter will include results for that city in other states. The foodtype filter can be applied independent of the location filter and vice versa, in the case you would like to just apply one filter.
 
-## Team Documents
+## Running the project 
 
-You may find these helpful as you work together to organize your project.
+To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+```bash
+npm install 
+npm run dev
+```
+## Dependencies
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+React
+Tailwind
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+## Contributing
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Our Team
 

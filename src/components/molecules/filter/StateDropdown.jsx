@@ -6,7 +6,7 @@ export default function StateDropdown(){
     const { selectState, state } = useLocation()
 
     function selected(e){
-        e.preventDefault()
+      
         selectState(e.target.value)
         console.log('state-dropdown', e.value)
     }
