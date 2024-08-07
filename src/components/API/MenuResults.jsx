@@ -75,7 +75,7 @@ export function MenuResults() {
 
     return (
 
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-4 mt-10 m-2 ">
             <h1>Results:</h1>
             {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
 

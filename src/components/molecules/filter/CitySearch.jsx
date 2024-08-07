@@ -16,7 +16,7 @@ export default function CitySearch() {
       <form onSubmit={search}>
         <label>
           City:
-          <input name="query" placeholder=" 90210" />
+          <input name="query" placeholder=" San Francisco" />
         </label>
         <button type="submit"  className="m-2 p-2 bg-slate-200 rounded-md">Search</button>
       </form>
