@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import './Order.css'
 import { useUser } from '../contexts/UserContext';
+import imageNotFound from '../assets/YumSpot-no-image-found.png'
 
 
 function OrderList() {
@@ -14,7 +15,10 @@ function OrderList() {
                 {user && user.order.map(item =>
                     <div key={item.id} className="order-map-div">
                         <img className="order-map-div-left"
-                            src={item.img} width="100px" />
+                            src={item.img} width="100px" onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src = imageNotFound;
+                            }} />
                         <div className="order-map-div-right">
                             <h1 className="order-name">{item.name}</h1>
                             <div className="order-qty-div">
