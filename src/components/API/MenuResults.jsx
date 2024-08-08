@@ -6,11 +6,12 @@ import { useLocation } from "../../contexts/FilterContext"
 import { useUser } from '@/contexts/UserContext';
 import { ContentCutOutlined, SettingsSuggestRounded } from '@mui/icons-material';
 import Rating from '@mui/material/Rating'
+import toast from 'react-hot-toast';
 
 export function MenuResults() {
 
     const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
-    const { user, updateOrder } = useUser();
+    const { user, updateOrder, incrementOrder } = useUser();
 
     const [data, setData] = useState([])
 
@@ -100,7 +101,10 @@ export function MenuResults() {
                                     rate: item.rate,
                                     qty: 1,
                                 })
-                            } else { null }
+                            } else {
+                                incrementOrder(user.order[user.order.findIndex((u) => u.id === item.id)])
+                            }
+                            toast.success(`Successfully added to cart!`)
                         }}
                     >Add to Order</button>}
                 </div>

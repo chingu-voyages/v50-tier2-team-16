@@ -90,7 +90,7 @@ export const UserProvider = ({ children }) => {
   const updateOrder = (newOrder) => {
     const updatedUser = { ...user, order: [...user.order, newOrder] };
     updateUserinLocalStorage(updatedUser);
-    toast.success(`Successfully added to cart!`)
+
   };
 
   const incrementOrder = (item) => {
