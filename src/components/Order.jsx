@@ -5,7 +5,7 @@ import { useUser } from '../contexts/UserContext';
 
 function OrderList() {
 
-    const { user, clearOrder, incrementOrder, decrementOrder } = useUser();
+    const { user, clearOrder, incrementOrder, decrementOrder, removeSpecificItem } = useUser();
 
 
     return (
@@ -27,7 +27,7 @@ function OrderList() {
                                     +</button>
                             </div>
                             <button className="order-remove-button"
-                                onClick={() => { return null }}
+                                onClick={() => { removeSpecificItem(item) }}
                             >Remove</button>
 
                         </div>
