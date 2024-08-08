@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/drawer";
 import Hamburger from "../../atoms/header/Hamburger";
 import UserAccount from "./UserAccount";
+import OrderList from "../../Order";
 import { useUser } from "@/contexts/UserContext";
 import { useEffect, useState } from "react";
 import TipButtons from "./TipButtons";
@@ -74,7 +75,7 @@ export function HeaderDrawer() {
             <DrawerDescription>Description</DrawerDescription>
           </DrawerHeader>
           <UserAccount />
-          <h3>Order goes here</h3>
+          <OrderList />
           <h1 className="order-total">Total: ${totalPrice} </h1>
           <p>Tip Amount</p>
           <TipButtons

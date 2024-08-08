@@ -15,16 +15,11 @@ function App() {
     <>
       <UserProvider>
         <FilterProvider>
-          <div className="app-container">
-            <div className="app-left">
-              <Header />
-              <Filter />
-              <Map />
-              <MenuResults />
-              <Footer />
-            </div>
-            <OrderList />
-          </div>
+          <Header />
+          <Filter />
+          <Map />
+          <MenuResults />
+          <Footer />
         </FilterProvider>
       </UserProvider>
     </>
