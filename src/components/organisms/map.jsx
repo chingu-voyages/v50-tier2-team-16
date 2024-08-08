@@ -4,10 +4,14 @@ import { useLocation } from '@/contexts/FilterContext';
 const map = () => {
 
     const { filteredData } = useLocation();
+    const outerBounds = [
+        [53.905970, -135.047459],
+        [21.923872, -60.426611],
+    ]
 
     return (
         <>
-            <MapContainer className="h-[450px] w-5/6 m-3 p-2 z-0" center={[39.50, -98.35]} zoom={4} scrollWheelZoom={true}>
+            <MapContainer className="h-[450px] w-5/6 m-3 p-2 z-0" center={[39.50, -98.35]} zoom={4} minZoom={4} scrollWheelZoom={true} maxBounds={outerBounds}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
