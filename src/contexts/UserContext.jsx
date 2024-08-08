@@ -45,8 +45,9 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem("userList", JSON.stringify([...userList, newUser]));
       setUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
+      toast.success("User successfully registered!")
     } else {
-      alert("username already taken");
+      toast.error("Username already taken, please try again");
     }
   };
 
@@ -59,7 +60,7 @@ export const UserProvider = ({ children }) => {
       setUser(isValidCredentials);
       localStorage.setItem("currentUser", JSON.stringify(isValidCredentials));
     } else {
-      alert("login failed, please try again");
+      toast.error("login failed, please try again");
     }
   };
 
