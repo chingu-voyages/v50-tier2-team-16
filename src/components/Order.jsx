@@ -7,17 +7,16 @@ function OrderList() {
 
     const { user, clearOrder, decrementOrder } = useUser();
     const [order, setOrder] = useState([])
+    const [item, setItem] = useState({})
 
-    // const user = JSON.parse(localStorage.getItem('currentUser'))
-
-    // function getOrder() {
-    //     if (user) {
-    //         setOrder(user.order)
-    //     } else {
-    //         null
-    //     }
-    //     getOrder();
-    // }
+    function getOrder() {
+        if (user) {
+            setOrder(user.order)
+        } else {
+            null
+        }
+        getOrder();
+    }
 
     let totalPrice = 0;
 
@@ -25,7 +24,7 @@ function OrderList() {
         user.order.forEach(value => {
             totalPrice += value.price * value.qty;
         });
-    }
+    } else {null}
 
     return (
         <div className="order-list-container overflow-auto">
@@ -39,20 +38,29 @@ function OrderList() {
                             <h1 className="order-name">{item.name}</h1>
                             <div className="order-qty-div">
                                 <button className="subtract-qty-button"
+                                        onClick={() => {
+                                            const test = user.order.find(a => a.id === item.id)
+                                            console.log(test.qty)
+                                            if (test.qty > 0) {
+                                            test.qty = test.qty - 1
+                                            } else if (test.qty = 0) {
+                                                setOrder(user.order.filter(a => a.id === item.id))
+                                            } else {null}
+                                            }}
                                 >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
                                     onClick={() => {
-                                        const test = order.find(a => a.id === item.id)
+                                        const test = user.order.find(a => a.id === item.id)
                                         console.log(test.qty)
                                         test.qty = test.qty + 1
-                                    }}>
-                                    +</button>
+                                        }}>
+                                +</button>
                             </div>
                             <button className="order-remove-button"
                                 onClick={() => {
                                     setOrder(
-                                        order.filter(a =>
+                                        user.order.filter(a =>
                                             a.id !== item.id
                                         )
                                     )
@@ -64,11 +72,8 @@ function OrderList() {
                 )}
             </div>
             <button className="clear-all-button"
-                onClick={() => {
-                    setOrder([])
-                    clearOrder()
-                }}
-            >Clear All</button>
+                onClick={() => {clearOrder()}}
+                >Checkout</button>
             <h1 className="order-total">Total: ${totalPrice} </h1>
         </div>
     );
