@@ -103,16 +103,26 @@ export const UserProvider = ({ children }) => {
   };
 
   const decrementOrder = (item) => {
-    let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
-    let newOrder = user.order;
-    newOrder[itemToUpdateIndex] = { ...item, qty: item.qty - 1 };
 
-    const updatedUser = { ...user, order: newOrder };
-    updateUserinLocalStorage(updatedUser);
+    if (item.qty === 1) {
+      removeSpecificItem(item);
+    } else {
+      let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+      let newOrder = user.order;
+      newOrder[itemToUpdateIndex] = { ...item, qty: item.qty - 1 };
+
+      const updatedUser = { ...user, order: newOrder };
+      updateUserinLocalStorage(updatedUser);
+    }
   };
 
   const removeSpecificItem = (item) => {
 
+    console.log("Oh no here")
+    const newOrder = user.order.filter((o) => o.id !== item.id);
+
+    const updatedUser = { ...user, order: newOrder };
+    updateUserinLocalStorage(updatedUser);
   }
 
   const clearOrder = () => {
