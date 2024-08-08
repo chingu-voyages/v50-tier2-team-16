@@ -15,6 +15,7 @@ import OrderList from "../../Order";
 import { useUser } from "@/contexts/UserContext";
 import { useEffect, useState } from "react";
 import TipButtons from "./TipButtons";
+import toast from "react-hot-toast";
 
 export function HeaderDrawer() {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -40,10 +41,10 @@ export function HeaderDrawer() {
 
     switch (true) {
       case user.order.length === 0:
-        alert("Please add items to your cart.");
+        toast("Please add items to your cart.", { icon: '🛒' });
         break;
       case balance < totalCheckOutAmount:
-        alert("Insufficient balance to complete the purchase.");
+        toast.error("Insufficient balance to complete the purchase.");
         break;
       default: {
         // Due to an issue with asynchronous processing, clearOrder and updateBalance can’t be used simultaneously, so I modified them directly.
@@ -55,7 +56,7 @@ export function HeaderDrawer() {
         setUser(updatedUser);
         updateUserinLocalStorage(updatedUser);
         setTipPrice(0);
-        alert("Purchase successful! Thank you for your shopping.");
+        toast.success("Purchase successful! Thank you for your shopping.");
         break;
       }
     }
