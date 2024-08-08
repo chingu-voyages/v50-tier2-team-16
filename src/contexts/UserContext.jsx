@@ -118,9 +118,7 @@ export const UserProvider = ({ children }) => {
 
   const removeSpecificItem = (item) => {
 
-    console.log("Oh no here")
     const newOrder = user.order.filter((o) => o.id !== item.id);
-
     const updatedUser = { ...user, order: newOrder };
     updateUserinLocalStorage(updatedUser);
   }
