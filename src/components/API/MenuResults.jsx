@@ -7,6 +7,7 @@ import { useUser } from '@/contexts/UserContext';
 import { ContentCutOutlined, SettingsSuggestRounded } from '@mui/icons-material';
 import Rating from '@mui/material/Rating'
 import toast from 'react-hot-toast';
+import imageNotFound from '../../assets/YumSpot-no-image-found.png'
 
 export function MenuResults() {
 
@@ -76,7 +77,7 @@ export function MenuResults() {
 
     return (
         <div>
-            <h1 className='mt-10'>Results:</h1>
+            <h1 className='mt-10 text'>Results:</h1>
             <div className="grid grid-cols-4 gap-4 m-2">
 
                 {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
@@ -85,7 +86,10 @@ export function MenuResults() {
                     <div key={index} className="data-map-div ">
                         <h1>{item.name}</h1>
                         <Rating defaultValue={item.rate} value={item.rate} />
-                        <img src={item.img} height="250px" alt={item.name}></img>
+                        <img src={item.img} height="250px" alt={item.name} onError={({ currentTarget }) => {
+                            currentTarget.onerror = null; // prevents looping
+                            currentTarget.src = imageNotFound;
+                        }}></img>
                         <h2>{item.country}</h2>
                         <h2>{item.dsc}</h2>
                         <p className="items-price">${item.price}</p>
