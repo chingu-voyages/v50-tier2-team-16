@@ -5,27 +5,8 @@ import { useUser } from '../contexts/UserContext';
 
 function OrderList() {
 
-    const { user, clearOrder, decrementOrder } = useUser();
-    const [order, setOrder] = useState([])
+    const { user, clearOrder, incrementOrder, decrementOrder } = useUser();
 
-    // const user = JSON.parse(localStorage.getItem('currentUser'))
-
-    // function getOrder() {
-    //     if (user) {
-    //         setOrder(user.order)
-    //     } else {
-    //         null
-    //     }
-    //     getOrder();
-    // }
-
-    let totalPrice = 0;
-
-    if (user) {
-        user.order.forEach(value => {
-            totalPrice += value.price * value.qty;
-        });
-    }
 
     return (
         <div className="order-list-container overflow-auto">
@@ -38,25 +19,15 @@ function OrderList() {
                         <div className="order-map-div-right">
                             <h1 className="order-name">{item.name}</h1>
                             <div className="order-qty-div">
-                                <button className="subtract-qty-button"
+                                <button className="subtract-qty-button" onClick={() => { decrementOrder(item) }}
                                 >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
-                                    onClick={() => {
-                                        const test = order.find(a => a.id === item.id)
-                                        console.log(test.qty)
-                                        test.qty = test.qty + 1
-                                    }}>
+                                    onClick={() => { incrementOrder(item) }}>
                                     +</button>
                             </div>
                             <button className="order-remove-button"
-                                onClick={() => {
-                                    setOrder(
-                                        order.filter(a =>
-                                            a.id !== item.id
-                                        )
-                                    )
-                                }}
+                                onClick={() => { return null }}
                             >Remove</button>
 
                         </div>
@@ -65,11 +36,9 @@ function OrderList() {
             </div>
             <button className="clear-all-button"
                 onClick={() => {
-                    setOrder([])
                     clearOrder()
                 }}
             >Clear All</button>
-            <h1 className="order-total">Total: ${totalPrice} </h1>
         </div>
     );
 }

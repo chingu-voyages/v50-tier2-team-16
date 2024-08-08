@@ -91,10 +91,29 @@ export const UserProvider = ({ children }) => {
     updateUserinLocalStorage(updatedUser);
   };
 
+  const incrementOrder = (item) => {
+
+    let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+    let newOrder = user.order;
+    newOrder[itemToUpdateIndex] = { ...item, qty: item.qty + 1 };
+
+    const updatedUser = { ...user, order: newOrder };
+    updateUserinLocalStorage(updatedUser);
+
+  };
+
   const decrementOrder = (item) => {
-    const updatedUser = {};
+    let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+    let newOrder = user.order;
+    newOrder[itemToUpdateIndex] = { ...item, qty: item.qty - 1 };
+
+    const updatedUser = { ...user, order: newOrder };
     updateUserinLocalStorage(updatedUser);
   };
+
+  const removeSpecificItem = (item) => {
+
+  }
 
   const clearOrder = () => {
     const updatedUser = { ...user, order: [] };
@@ -113,7 +132,9 @@ export const UserProvider = ({ children }) => {
         updateBalance,
         updateOrder,
         clearOrder,
+        incrementOrder,
         decrementOrder,
+        removeSpecificItem,
         updateUserinLocalStorage,
       }}
     >

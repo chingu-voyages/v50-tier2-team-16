@@ -74,6 +74,7 @@ export function HeaderDrawer() {
             <DrawerDescription>Description</DrawerDescription>
           </DrawerHeader>
           <UserAccount />
+          <h3>Order goes here</h3>
           <h1 className="order-total">Total: ${totalPrice} </h1>
           <p>Tip Amount</p>
           <TipButtons
