@@ -1,14 +1,13 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { useLocation } from '@/contexts/FilterContext';
 
-const map = (props) => {
+const map = () => {
 
     const { filteredData } = useLocation();
 
     return (
-
         <>
-            <MapContainer className="h-[450px] w-full m-3 p-2 z-0" center={[39.50, -98.35]} zoom={4} scrollWheelZoom={true}>
+            <MapContainer className="h-[450px] w-5/6 m-3 p-2 z-0" center={[39.50, -98.35]} zoom={4} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
