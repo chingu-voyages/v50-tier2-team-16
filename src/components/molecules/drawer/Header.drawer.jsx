@@ -75,8 +75,9 @@ export function HeaderDrawer() {
             <DrawerDescription>Description</DrawerDescription>
           </DrawerHeader>
           <UserAccount />
+
           <OrderList />
-          <h1 className="order-total">Total: ${totalPrice} </h1>
+          <h2 className="order-total">Subtotal: ${totalPrice} </h2>
           <p>Tip Amount</p>
           <TipButtons
             onClickTipPrice={onClickTipPrice}

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import { v4 as uuid } from "uuid";
 
 const UserContext = createContext();
@@ -89,6 +90,7 @@ export const UserProvider = ({ children }) => {
   const updateOrder = (newOrder) => {
     const updatedUser = { ...user, order: [...user.order, newOrder] };
     updateUserinLocalStorage(updatedUser);
+    toast.success(`Successfully added to cart!`)
   };
 
   const incrementOrder = (item) => {

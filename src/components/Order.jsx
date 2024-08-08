@@ -9,8 +9,7 @@ function OrderList() {
 
 
     return (
-        <div className="order-list-container overflow-auto">
-            <h1 className="order-title">Order</h1>
+        <div className="overflow-auto max-h-96">
             <div className="order-list-items">
                 {user && user.order.map(item =>
                     <div key={item.id} className="order-map-div">
