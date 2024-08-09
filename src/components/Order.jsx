@@ -8,12 +8,6 @@ function OrderList() {
 
     const { user, clearOrder, incrementOrder, decrementOrder, removeSpecificItem } = useUser();
 
-    if (user) {
-        user.order.forEach(value => {
-            totalPrice += value.price * value.qty;
-        });
-    } else {null}
-  
     return (
         <div className="overflow-auto max-h-96">
             <div className="order-list-items">
