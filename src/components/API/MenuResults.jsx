@@ -78,7 +78,7 @@ export function MenuResults() {
     return (
         <div>
             <h1 className='mt-10 text'>Results:</h1>
-            <div className="grid grid-cols-4 gap-4 m-2">
+            <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 m-2">
 
                 {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
 
