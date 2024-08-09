@@ -8,15 +8,11 @@ function OrderList() {
 
     const { user, clearOrder, incrementOrder, decrementOrder, removeSpecificItem } = useUser();
 
-    let totalPrice = 0;
-
     if (user) {
         user.order.forEach(value => {
             totalPrice += value.price * value.qty;
         });
     } else {null}
-
-    let totalPriceRounded = totalPrice.toFixed(2)
   
     return (
         <div className="overflow-auto max-h-96">
@@ -47,10 +43,6 @@ function OrderList() {
                     </div>
                 )}
             </div>
-            <button className="clear-all-button"
-                onClick={() => {clearOrder()}}
-                >Checkout</button>
-            <h1 className="order-total">Total: ${totalPriceRounded} </h1>
         </div>
     );
 }
