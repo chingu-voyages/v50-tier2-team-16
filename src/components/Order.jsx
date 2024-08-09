@@ -10,7 +10,7 @@ function OrderList() {
 
 
     return (
-        <div className="overflow-auto max-h-96">
+        <div className="overflow-auto max-h-96 ml-2 mr-10 order-scroll py-2 my-2 bg-[#ffffff65] rounded-lg">
             <div className="order-list-items">
                 {user && user.order.map(item =>
                     <div key={item.id} className="order-map-div">
