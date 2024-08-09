@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import toast from "react-hot-toast";
 import { v4 as uuid } from "uuid";
 
 const UserContext = createContext();
@@ -44,8 +45,9 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem("userList", JSON.stringify([...userList, newUser]));
       setUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
+      toast.success("User successfully registered!")
     } else {
-      alert("username already taken");
+      toast.error("Username already taken, please try again");
     }
   };
 
@@ -58,7 +60,7 @@ export const UserProvider = ({ children }) => {
       setUser(isValidCredentials);
       localStorage.setItem("currentUser", JSON.stringify(isValidCredentials));
     } else {
-      alert("login failed, please try again");
+      toast.error("login failed, please try again");
     }
   };
 
@@ -89,12 +91,40 @@ export const UserProvider = ({ children }) => {
   const updateOrder = (newOrder) => {
     const updatedUser = { ...user, order: [...user.order, newOrder] };
     updateUserinLocalStorage(updatedUser);
+
   };
 
-  const decrementOrder = (newOrder) => {
+  const incrementOrder = (item) => {
+
+    let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+    let newOrder = user.order;
+    newOrder[itemToUpdateIndex] = { ...item, qty: item.qty + 1 };
+
     const updatedUser = { ...user, order: newOrder };
     updateUserinLocalStorage(updatedUser);
+
   };
+
+  const decrementOrder = (item) => {
+
+    if (item.qty === 1) {
+      removeSpecificItem(item);
+    } else {
+      let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+      let newOrder = user.order;
+      newOrder[itemToUpdateIndex] = { ...item, qty: item.qty - 1 };
+
+      const updatedUser = { ...user, order: newOrder };
+      updateUserinLocalStorage(updatedUser);
+    }
+  };
+
+  const removeSpecificItem = (item) => {
+
+    const newOrder = user.order.filter((o) => o.id !== item.id);
+    const updatedUser = { ...user, order: newOrder };
+    updateUserinLocalStorage(updatedUser);
+  }
 
   const clearOrder = () => {
     const updatedUser = { ...user, order: [] };
@@ -113,7 +143,9 @@ export const UserProvider = ({ children }) => {
         updateBalance,
         updateOrder,
         clearOrder,
+        incrementOrder,
         decrementOrder,
+        removeSpecificItem,
         updateUserinLocalStorage,
       }}
     >

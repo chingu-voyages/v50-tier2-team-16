@@ -8,6 +8,7 @@ import { FilterProvider } from "./contexts/FilterContext";
 import MenuResults from "./components/API/MenuResults";
 import Footer from "./components/organisms/Footer";
 import Header from "./components/organisms/Header";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
 
@@ -15,16 +16,12 @@ function App() {
     <>
       <UserProvider>
         <FilterProvider>
-          <div className="app-container">
-            <div className="app-left">
-              <Header />
-              <Filter />
-              <Map />
-              <MenuResults />
-              <Footer />
-            </div>
-            <OrderList />
-          </div>
+          <Toaster position="top-center" reverseOrder={false} />
+          <Header />
+          <Filter />
+          <Map />
+          <MenuResults />
+          <Footer />
         </FilterProvider>
       </UserProvider>
     </>
