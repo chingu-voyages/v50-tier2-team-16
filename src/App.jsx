@@ -12,7 +12,7 @@ import toast, { Toaster } from 'react-hot-toast';
 function App() {
 
   return (
-    <div className="flex flex-col justify-center w-full mx-auto max-w-[1920px]">
+    <div className="flex flex-col justify-center w-full px-2 mx-auto max-w-[1920px]">
       <UserProvider>
         <FilterProvider>
           <Toaster position="top-center" reverseOrder={false} />
