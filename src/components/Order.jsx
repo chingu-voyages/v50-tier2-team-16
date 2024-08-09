@@ -6,17 +6,13 @@ import { useUser } from '../contexts/UserContext';
 function OrderList() {
 
     const { user, clearOrder, decrementOrder } = useUser();
-    const [order, setOrder] = useState([])
-    const [item, setItem] = useState({})
+    const [ order, setOrder ] = useState([]);
 
-    function getOrder() {
+    useEffect(() => {
         if (user) {
-            setOrder(user.order)
-        } else {
-            null
-        }
-        getOrder();
-    }
+        setOrder(user.order)
+        } else {null}
+    }, [user])
 
     let totalPrice = 0;
 
@@ -26,6 +22,8 @@ function OrderList() {
         });
     } else {null}
 
+    let totalPriceRounded = totalPrice.toFixed(2)
+console.log(order)
     return (
         <div className="order-list-container overflow-auto">
             <h1 className="order-title">Order</h1>
@@ -36,37 +34,41 @@ function OrderList() {
                             src={item.img} width="100px" />
                         <div className="order-map-div-right">
                             <h1 className="order-name">{item.name}</h1>
+                            <p className="order-desc">{item.dsc}</p>
                             <div className="order-qty-div">
                                 <button className="subtract-qty-button"
                                         onClick={() => {
-                                            const test = user.order.find(a => a.id === item.id)
-                                            console.log(test.qty)
-                                            if (test.qty > 0) {
-                                            test.qty = test.qty - 1
-                                            } else if (test.qty = 0) {
-                                                setOrder(user.order.filter(a => a.id === item.id))
+                                            const getOrder = user.order.find(a => a.id === item.id)
+                                            console.log(getOrder.qty)
+                                            if (getOrder.qty > 1) {
+                                                getOrder.qty = getOrder.qty - 1
+                                            } else if (getOrder.qty <= 1) {
+                                                const decOrder = 
+                                                    user.order.filter(a =>
+                                                        a.id !== item.id
+                                                        )
+                                                    decrementOrder(decOrder)
                                             } else {null}
                                             }}
                                 >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
-                                    onClick={() => {
-                                        const test = user.order.find(a => a.id === item.id)
-                                        console.log(test.qty)
-                                        test.qty = test.qty + 1
-                                        }}>
-                                +</button>
+                                        onClick={() => {
+                                            const getOrder = user.order.find(a => a.id === item.id)
+                                            console.log(getOrder.qty)
+                                            getOrder.qty = getOrder.qty + 1
+                                            }}
+                                >+</button>
                             </div>
                             <button className="order-remove-button"
-                                onClick={() => {
-                                    setOrder(
-                                        user.order.filter(a =>
-                                            a.id !== item.id
-                                        )
-                                    )
-                                }}
+                                    onClick={() => {
+                                        const decOrder = 
+                                            user.order.filter(a =>
+                                                a.id !== item.id
+                                            )
+                                        decrementOrder(decOrder)
+                                    }}
                             >Remove</button>
-
                         </div>
                     </div>
                 )}
@@ -74,7 +76,7 @@ function OrderList() {
             <button className="clear-all-button"
                 onClick={() => {clearOrder()}}
                 >Checkout</button>
-            <h1 className="order-total">Total: ${totalPrice} </h1>
+            <h1 className="order-total">Total: ${totalPriceRounded} </h1>
         </div>
     );
 }
