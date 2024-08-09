@@ -48,8 +48,14 @@
 }
 
 .order-name {
-    margin-bottom: 10px;
     font-size: 20px;
+    font-weight: 600;
+}
+
+.order-desc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-style: italic;
 }
 
 .order-qty-div {
@@ -63,27 +69,27 @@
 
 .order-qty {
     width: 20px;
-    background-color: lightgray;
+    background-color: white;
     padding: 5px;
     border: solid, 1px;
 }
 
 .subtract-qty-button {
     width: 20px;
-    background-color: lightgray;
+    background-color:white;
     padding: 5px;
     border: solid, 1px;
 }
 
 .add-qty-button {
     width: 20px;
-    background-color: lightgray;
+    background-color: white;
     padding: 5px;
     border: solid, 1px;
 }
 
 .order-remove-button {
-    background-color: lightgray;
+    background-color: white;
     padding: 5px;
     border: solid, 1px;
     margin-top: 5px;
@@ -104,7 +110,7 @@
 }
 
 .clear-all-button {
-    background-color: lightgray;
+    background-color: white;
     padding: 5px;
     border: solid, 1px;
     margin-top: 5px;

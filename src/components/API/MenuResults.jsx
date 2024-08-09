@@ -102,6 +102,7 @@ export function MenuResults() {
                                         name: item.name,
                                         img: item.img,
                                         country: item.country,
+                                        dsc: item.dsc,
                                         price: item.price,
                                         rate: item.rate,
                                         qty: 1,
