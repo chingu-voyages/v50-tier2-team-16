@@ -2,7 +2,7 @@ import React from 'react'
 import { createContext, useContext } from 'react'
 import { states } from '../../data/states.jsx'
 import { foodtypes } from '../../data/foodtypes.jsx'
-
+import { pricerange } from '../../data/pricerange.jsx'
 const FilterContext = createContext()
 
 export function useLocation() {
@@ -14,6 +14,7 @@ export const FilterProvider = ({ children }) => {
     const [foodtype, setFoodtype] = React.useState(foodtypes[0])
     const [state, setState] = React.useState(states[0])
     const [city, setCity] = React.useState("")
+    const [priceRange, setPriceRange] = React.useState(pricerange[0])
     const [filteredData, setFilteredData] = React.useState([]);
 
     const selectFoodtype = (foodtype) => {
@@ -28,8 +29,12 @@ export const FilterProvider = ({ children }) => {
         setCity(city)
     }
 
+    const selectPrice = (price) => {
+        setPriceRange(price)
+    }
+
     return (
-        <FilterContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity, filteredData, setFilteredData }}>
+        <FilterContext.Provider value={{ useLocation, foodtype, selectFoodtype, state, selectState, city, selectCity, priceRange, selectPrice, filteredData, setFilteredData }}>
             {children}
         </FilterContext.Provider>
     )
