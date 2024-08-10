@@ -8,7 +8,6 @@ function OrderList() {
 
     const { user, clearOrder, incrementOrder, decrementOrder, removeSpecificItem } = useUser();
 
-
     return (
         <div className="overflow-auto max-h-96">
             <div className="order-list-items">
@@ -21,8 +20,10 @@ function OrderList() {
                             }} />
                         <div className="order-map-div-right">
                             <h1 className="order-name">{item.name}</h1>
+                            <p className="order-desc">{item.dsc}</p>
                             <div className="order-qty-div">
-                                <button className="subtract-qty-button" onClick={() => { decrementOrder(item) }}
+                                <button className="subtract-qty-button"
+                                        onClick={() => { decrementOrder(item) }}
                                 >-</button>
                                 <p className="order-qty">{item.qty}</p>
                                 <button className="add-qty-button"
@@ -32,16 +33,10 @@ function OrderList() {
                             <button className="order-remove-button"
                                 onClick={() => { removeSpecificItem(item) }}
                             >Remove</button>
-
                         </div>
                     </div>
                 )}
             </div>
-            <button className="clear-all-button"
-                onClick={() => {
-                    clearOrder()
-                }}
-            >Clear All</button>
         </div>
     );
 }
