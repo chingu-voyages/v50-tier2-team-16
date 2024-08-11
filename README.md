@@ -6,13 +6,13 @@
 
 ## Overview
 
-Yumspot is a front-end web application for ordering food from restaurants around the United States. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
+Yumspot is a front-end web application for ordering food from restaurants around the United States. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from.
 
 ## Features
 
-**User access**:
+**User access**: A guest visiting the website has the ability to register an account. Once registered, the user may add funds to their account and purchase products. User information is stored in localStorage and can reaccessed after logging out and back in.
 
-**Account balance**:
+**Account balance**: T
 
 **Filter functionality**: Filter through the results by your location (city and/or state) and preferred foodtype. If your chosen city is not available in the chosen state, the filter will include results for that city in other states. The foodtype filter can be applied independent of the location filter and vice versa, in the case you would like to just apply one filter.
 
