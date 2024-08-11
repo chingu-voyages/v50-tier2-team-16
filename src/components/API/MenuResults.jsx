@@ -10,7 +10,7 @@ import toast from 'react-hot-toast';
 
 export function MenuResults() {
 
-    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
+    const { foodtype, state, city, priceRange, filteredData, setFilteredData } = useLocation();
     const { user, updateOrder, incrementOrder } = useUser();
 
     const [data, setData] = useState([])
@@ -35,14 +35,14 @@ export function MenuResults() {
         function FilterDownByType(intermediateArray) {
             return ByFoodType(intermediateArray);
         }
+        
+        // FilterDownByType(ByPrice());
 
         setFilteredData(FilterData())
 
-    }, [foodtype, state, city]);
+    }, [foodtype, state, city, priceRange]);
 
     function ByCountry() {
-
-        if (true) {
 
             result = [...Object.values(data)].flat().filter((item, index) => {
 
@@ -52,14 +52,14 @@ export function MenuResults() {
                     return (cityOrStateMatched);
                 }
             })
-        }
+        
         return result;
     }
 
-    function ByFoodType(cityFilteredArray) {
+    function ByFoodType(FilteredArray) {
         if (foodtype !== "Select a food category") {
 
-            return cityFilteredArray.filter((item) => {
+            return FilteredArray.filter((item) => {
 
                 for (let i = 0; i < data[`${ foodtype }`].length; i++) {
                     if (item.id === data[`${ foodtype }`][i].id) {
@@ -70,7 +70,26 @@ export function MenuResults() {
             })
 
         } else {
-            return cityFilteredArray
+            return FilteredArray
+        }
+    }
+    console.log("pricerange", priceRange)
+
+    function ByPrice(FilteredArray) {
+        console.log("inside price")
+        if (priceRange.num > 0) {
+            console.log("inside price2")
+            return FilteredArray.filter(item => {
+
+                for (let i=0; i < data.price.length; i++) {
+                    if (priceRange.name > item.price) {
+                        return true
+                    } 
+                }
+                return true
+            })
+        } else {
+            return FilteredArray
         }
     }
 

@@ -4,19 +4,18 @@ import { pricerange } from '../../../../data/pricerange.jsx'
 
 export default function PriceRange(){
 
-    const [isChecked, setIsChecked] = React.useState(false)
-    const { priceRange, selectPrice } = useLocation()
+    const { priceRange, selectPrice, isChecked, setIsChecked } = useLocation()
 
     const checkbox = () => {
        console.log("priceRange", priceRange)
         return pricerange.map((price, index) => {
-            return (<div>
+            return (<div key={price.index}>
                 <input
                 type="checkbox"
                 name={price.name}
-                // id={`checkbox-${index}`}
-                id={price.name.split("$", 3)}
-                checked={isChecked}
+                id={`checkbox-${index}`}
+                // id={price.name.split("$", 3)}
+                checked={price.isChecked}
                 onChange={(e)=>updateChecked(e)}
                 />
                 <label htmlFor={`checkbox-${index}`}>{price.name}</label>
@@ -26,10 +25,14 @@ export default function PriceRange(){
       }
 
     function updateChecked(e) {
-        setIsChecked(!isChecked)
-        if (isChecked === true) {
-             // const value = e.target.getAttribute('name').split("$", 3)
-            selectPrice(e.currentTarget.id)
+        console.log("e.target.getAttribute('name')", e.target.getAttribute('name'))
+        console.log('e.target.checked', e.target.checked)
+       
+        if (e.target.checked === true) {
+            const getNum = parseInt(e.target.getAttribute('name').substring(1, 5))
+            console.log("getNum", getNum)
+            // console.log(typeof getNum)
+            selectPrice(getNum)
         } else {
             console.log("price range not specified")
         }
