@@ -23,8 +23,8 @@ Yumspot is a front-end web application for ordering food from restaurants around
 ## Running the project 
 
  1. Clone this project locally 
- 2. `cd` into the project directory  
- 3.To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+ 2. `cd` into the project directory 
+ 3. To run the app on your local device, make sure to install the appropriate packages and run using the following command:
     ```bash
     npm install 
     npm run dev
