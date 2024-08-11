@@ -10,9 +10,9 @@ Yumspot is a food ordering map for restaurants around the world. Simply filter y
 
 ## Features
 
-**User Access**:
+**User access**:
 
-**Account Balance**:
+**Account balance**:
 
 **Filter functionality**: Filter through the results by your location (city and/or state) and preferred foodtype. If your chosen city is not available in the chosen state, the filter will include results for that city in other states. The foodtype filter can be applied independent of the location filter and vice versa, in the case you would like to just apply one filter.
 
