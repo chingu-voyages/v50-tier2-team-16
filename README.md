@@ -6,7 +6,7 @@
 
 ## Overview
 
-Yumspot is a food ordering map for restaurants around the world. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
+Yumspot is a front-end web application for ordering food from restaurants around the United States. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from. 
 
 ## Features
 
