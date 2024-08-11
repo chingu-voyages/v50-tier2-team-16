@@ -18,7 +18,7 @@ Yumspot is a front-end web application for ordering food from restaurants around
 
 **Interactive map**: Search restaurants in your city or a city near you to find a destination to eat. The map will display restaurant locations with information like restaurant name, rating, description, and an image. The user has the ability to zoom in and out and has the range to search all over the United States.
 
-**Order section**: When the user has chosen to buy from the menu, they can add it to their order. The item is moved into a pop-out sidebar that displays a virtual cart. Items can be added and removed from the cart, the quantities can be modified, and the user has the ability to make a purchase. At checkout, the user may add a tip to the order. If the user has enough funds in their account, the purchase will be successfull.
+**Order section**: When the user has chosen to buy from the menu, they can add it to their order. The item is moved into a pop-out sidebar that displays a virtual cart. Items can be added and removed from the cart, the quantities can be modified, and the user has the ability to make a purchase. At checkout, the user may add a tip. If the user has enough funds in their account, the purchase will be successfull.
 
 ## Running the project 
 
