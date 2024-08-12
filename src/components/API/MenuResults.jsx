@@ -14,6 +14,7 @@ export function MenuResults() {
     const { user, updateOrder, incrementOrder } = useUser();
 
     const [data, setData] = useState([])
+    const [addedFilters, setAddedFilters] = useState([])
 
     let result = []
 
@@ -43,7 +44,12 @@ export function MenuResults() {
     }, [foodtype, state, city, priceRange]);
 
     function ByCountry() {
-
+        if (state.Abbreviation !== "none" || city !== ""){
+            if (!addedFilters.includes("location")){
+                setAddedFilters(prev => [...prev, "location"])
+            }
+        }
+        console.log('state', state)
             result = [...Object.values(data)].flat().filter((item, index) => {
 
                 if (index < [...Object.values(data)].flat().length - 1) {
@@ -52,13 +58,16 @@ export function MenuResults() {
                     return (cityOrStateMatched);
                 }
             })
-        
+       
         return result;
     }
+    
 
     function ByFoodType(FilteredArray) {
         if (foodtype !== "Select a food category") {
-
+            if (!addedFilters.includes("foodtype")){
+                setAddedFilters(prev => [...prev, "foodtype"])
+            }
             return FilteredArray.filter((item) => {
 
                 for (let i = 0; i < data[`${ foodtype }`].length; i++) {
@@ -66,6 +75,7 @@ export function MenuResults() {
                         return true
                     }
                 }
+                
                 return false;
             })
 
@@ -74,6 +84,7 @@ export function MenuResults() {
         }
     }
     console.log("pricerange", priceRange)
+    console.log('addedFilters', addedFilters)
 
     function ByPrice(FilteredArray) {
         console.log("inside price")
@@ -86,6 +97,7 @@ export function MenuResults() {
                         return true
                     } 
                 }
+                setAddedFilters(prev => [...prev, "price"])
                 return true
             })
         } else {
@@ -93,10 +105,17 @@ export function MenuResults() {
         }
     }
 
+    const tags = () => {
+        addedFilters.map((tag, index) => {
+            return <h2 key={index}>{tag}</h2>
+        })
+    }
+
     return (
 
         <div className="grid grid-cols-4 gap-4 mt-10 m-2 ">
             <h1>Results:</h1>
+            {tags}
             {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
 
             {filteredData && filteredData?.map((item, index) => (

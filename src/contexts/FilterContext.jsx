@@ -24,7 +24,9 @@ export const FilterProvider = ({ children }) => {
     }
 
     const selectState = (state) => {
-        setState(state)
+        setState({
+            Abbreviation: state
+        })
     }
 
     const selectCity = (city) => {
