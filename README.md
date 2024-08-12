@@ -1,7 +1,7 @@
 # YumSpot
 
 <picture>
-  <img alt="YumSpot Logo" src="https://github.com/chingu-voyages/v50-tier2-team-16/tree/dev/src/assets/logo.png" width="400">
+  <img alt="YumSpot Logo" src="https://github.com/chingu-voyages/v50-tier2-team-16/blob/main/src/assets/logo.png" width="400">
 </picture>
 
 ## Overview
