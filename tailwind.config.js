@@ -13,11 +13,18 @@ module.exports = {
       center: true,
       padding: "2rem",
       screens: {
+        "xs": "480px",
+        "sm": "760px",
+        "md": "1060px",
         "2xl": "1400px",
       },
     },
     extend: {
       colors: {
+        "app-yellow": "#FFEDD9",
+        "header-color": "#d1ac82",
+        "header-navButton": "#82A7D1",
+        "header-navButton-hover": "#7297C1",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

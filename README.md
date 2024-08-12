@@ -1,38 +1,58 @@
-# voyage-tasks
+# YumSpot
 
-Your project's `readme` is as important to success as your code. For
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+<picture>
+  <img alt="YumSpot Logo" src="https://github.com/chingu-voyages/v50-tier2-team-16/tree/dev/src/assets/logo.png" width="400">
+</picture>
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point -
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+## Overview
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+Yumspot is a front-end web application for ordering food from restaurants around the United States. Simply filter your desired search by location or foodtype, and all relevant participating restaurant menus populate for you to choose from.
 
-> Own it & Make it your Own!
+## Features
 
-## Team Documents
+**User access**: A guest visiting the website has the ability to register an account. Once registered, the user may add funds to their account and purchase products. User information is stored in localStorage and can reaccessed after logging out and back in.
 
-You may find these helpful as you work together to organize your project.
+**Account balance**: A signed-in user may add funds to their account. This feature is used for ordering products. A user cannot purchase from the menu without an adequate balance. When a purchase is made, the balance updates automatically.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+**Filter functionality**: Filter through the results by your location (city and/or state) and preferred foodtype. If your chosen city is not available in the chosen state, the filter will include results for that city in other states. The foodtype filter can be applied independent of the location filter and vice versa, in the case you would like to just apply one filter.
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+**Interactive map**: Search restaurants in your city or a city near you to find a destination to eat. The map will display restaurant locations with information like restaurant name, description, rating, and an image. The user has the ability to zoom in and out and has the range to search all over the United States.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+**Order section**: When the user has chosen to buy from the menu, they can add to their order. The item is moved into a pop-out sidebar that displays a virtual cart. Items can be added and removed from the cart, the quantities can be modified, and the user has the ability to make a purchase. At checkout, the user may add a tip. If the user has enough funds in their account, the purchase will be successful.
+
+## Running the project 
+
+ 1. Clone this project locally 
+ 2. `cd` into the project directory 
+ 3. To run the app on your local device, make sure to install the appropriate packages and run using the following command:
+    ```bash
+    npm install 
+    npm run dev
+    ```
+ 4. Search for the most Yumspot in your area!
+
+## Dependencies
+
+React  
+Tailwind
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Our Team
 
 - Kristi Hwang: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
 - Laura Gieg/Frosty: [GitHub](https://github.com/frosty8104∂) / [LinkedIn](https://www.linkedin.com/in/laura-gieg-web-designer-developer/)
-- Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka-a602242a8/)
-- Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie)
+- Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka)
+- Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie) / [Website](https://matthew-neie.netlify.app/)
 - Jesse Guerrero: [GitHub](https://github.com/arositen) / [LinkedIn](https://www.linkedin.com/in/jesse-guerrero-38628613b/)
 
 ## Deployed sites:

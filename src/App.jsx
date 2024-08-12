@@ -1,31 +1,29 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import Map from "./components/organisms/map";
-import UserDashboard from "./components/organisms/userDashboard";
 import { UserProvider } from "./contexts/UserContext";
-import Menu from "./components/MenuAPI";
-import OrderList from "./components/Order";
+import Filter from "./components/organisms/Filter";
+import { FilterProvider } from "./contexts/FilterContext";
+import MenuResults from "./components/API/MenuResults";
 import Footer from "./components/organisms/Footer";
-import { DrawerDemo } from "./components/molecules/Header.drawer";
+import Header from "./components/organisms/Header";
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
-  const [order, setOrder] = useState([]);
 
   return (
-    <>
-      <div className="app-container">
-        <div className="app-left">
-          <UserProvider>
-            <DrawerDemo />
-            <UserDashboard />
-            <Map />
-            <Menu order={order} setOrder={setOrder} />
-            <Footer />
-          </UserProvider>
-        </div>
-        <OrderList order={order} setOrder={setOrder} />
-      </div>
-    </>
+    <div className="flex flex-col justify-center w-full px-2 mx-auto max-w-[1920px]">
+      <UserProvider>
+        <FilterProvider>
+          <Toaster position="top-center" reverseOrder={false} />
+          <Header />
+          <Filter />
+          <Map />
+          <MenuResults />
+          <Footer />
+        </FilterProvider>
+      </UserProvider>
+    </div>
   );
 }
 

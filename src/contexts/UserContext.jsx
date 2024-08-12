@@ -1,52 +1,155 @@
 import { createContext, useContext, useState, useEffect } from "react";
+import toast from "react-hot-toast";
+import { v4 as uuid } from "uuid";
 
 const UserContext = createContext();
 
 export function useUser() {
-    return useContext(UserContext);
+  return useContext(UserContext);
 }
 
 export const UserProvider = ({ children }) => {
+  const [userList, setUserList] = useState([]);
+  const [user, setUser] = useState(null);
 
-    const [user, setUser] = useState(null);
+  //initialize user list in localStorage
+  if (!localStorage.getItem("userList")) {
+    localStorage.setItem("userList", JSON.stringify(userList));
+  }
 
-    useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('user'));
-        if (storedUser) {
-            setUser(storedUser);
-        }
-    }, []);
-
-    const register = (username, password) => {
-        const newUser = { username, password, balance: 0 };
-        setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
+  //if user was logged in last session, use them as active account
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (storedUser) {
+      setUser(storedUser);
     }
 
-    const login = (username) => {
-        const newUser = { username, balance: 100 };
-        setUser(newUser);
-        localStorage.setItem('user', JSON.stringify(newUser));
-    };
+    const storedUserList = JSON.parse(localStorage.getItem("userList"));
+    if (storedUserList) {
+      setUserList(storedUserList);
+    }
+  }, []);
 
-    const logout = () => {
-        setUser(null);
-        localStorage.removeItem('user');
-    };
+  const register = (username, password) => {
+    let userNameIsTaken = userList.find((u) => u.username === username);
 
-    //function for updating balance in json file;
-    const updateBalance = (amount) => {
-        const updatedUser = { ...user, balance: parseInt(user.balance) + parseInt(amount) };
-        setUser(updatedUser);
-        localStorage.setItem('user', JSON.stringify(updatedUser));
+    if (!userNameIsTaken) {
+      let newUser = {
+        id: uuid(),
+        username: username,
+        password: password,
+        balance: 0,
+        order: [],
+      };
+      setUserList([...userList, newUser]);
+      localStorage.setItem("userList", JSON.stringify([...userList, newUser]));
+      setUser(newUser);
+      localStorage.setItem("currentUser", JSON.stringify(newUser));
+      toast.success("User successfully registered!")
+    } else {
+      toast.error("Username already taken, please try again");
+    }
+  };
 
-    };
-
-
-    return (
-        <UserContext.Provider value={{ useUser, user, register, login, logout, updateBalance }}>
-            {children}
-        </UserContext.Provider>
+  const login = (username, password) => {
+    let isValidCredentials = userList.find(
+      (u) => u.username === username && u.password === password
     );
 
-}
+    if (isValidCredentials) {
+      setUser(isValidCredentials);
+      localStorage.setItem("currentUser", JSON.stringify(isValidCredentials));
+    } else {
+      toast.error("login failed, please try again");
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.setItem("currentUser", null);
+  };
+
+  const updateUserinLocalStorage = (userToUpdate) => {
+    let userListUpdateIndex = userList.findIndex((u) => u.id === user.id);
+    let newUserList = userList;
+    newUserList[userListUpdateIndex] = userToUpdate;
+    setUser(userToUpdate);
+    localStorage.setItem("currentUser", JSON.stringify(userToUpdate));
+    setUserList(newUserList);
+    localStorage.setItem("userList", JSON.stringify(newUserList));
+  };
+
+  //function for updating balance in json file;
+  const updateBalance = (amount) => {
+    const updatedUser = {
+      ...user,
+      balance: parseInt(user.balance) + parseInt(amount),
+    };
+    updateUserinLocalStorage(updatedUser);
+  };
+
+  const updateOrder = (newOrder) => {
+    const updatedUser = { ...user, order: [...user.order, newOrder] };
+    updateUserinLocalStorage(updatedUser);
+
+  };
+
+  const incrementOrder = (item) => {
+
+    let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+    let newOrder = user.order;
+    newOrder[itemToUpdateIndex] = { ...item, qty: item.qty + 1 };
+
+    const updatedUser = { ...user, order: newOrder };
+    updateUserinLocalStorage(updatedUser);
+
+  };
+
+  const decrementOrder = (item) => {
+
+    if (item.qty === 1) {
+      removeSpecificItem(item);
+    } else {
+      let itemToUpdateIndex = user.order.findIndex((u) => u.id === item.id);
+      let newOrder = user.order;
+      newOrder[itemToUpdateIndex] = { ...item, qty: item.qty - 1 };
+
+      const updatedUser = { ...user, order: newOrder };
+      updateUserinLocalStorage(updatedUser);
+    }
+  };
+
+  const removeSpecificItem = (item) => {
+
+    const newOrder = user.order.filter((o) => o.id !== item.id);
+    const updatedUser = { ...user, order: newOrder };
+    updateUserinLocalStorage(updatedUser);
+  }
+
+  const clearOrder = () => {
+    const updatedUser = { ...user, order: [] };
+    updateUserinLocalStorage(updatedUser);
+  };
+
+  return (
+    <UserContext.Provider
+      value={{
+        setUser,
+        useUser,
+        user,
+        register,
+        login,
+        logout,
+        updateBalance,
+        updateOrder,
+        clearOrder,
+        incrementOrder,
+        decrementOrder,
+        removeSpecificItem,
+        updateUserinLocalStorage,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
