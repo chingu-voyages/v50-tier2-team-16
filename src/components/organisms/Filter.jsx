@@ -1,6 +1,7 @@
 import StateDropdown from '../molecules/filter/StateDropdown'
 import CitySearch from '../molecules/filter/CitySearch'
 import FoodDropdown from '../molecules/filter/FoodDropdown'
+import PriceRange from '../molecules/filter/PriceRange'
 
 export default function Filter() {
     return (
@@ -19,7 +20,11 @@ export default function Filter() {
                 <h1>Want to check if we deliver in your city?:</h1>
                 <CitySearch />
             </div>
-
+            <div className='fourthFilter mt-4'>
+                    By price range:
+                    <PriceRange />
+            </div>
         </div>
+        
     )
 }

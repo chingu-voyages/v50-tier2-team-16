@@ -11,10 +11,11 @@ import imageNotFound from '../../assets/YumSpot-no-image-found.png'
 
 export function MenuResults() {
 
-    const { foodtype, state, city, filteredData, setFilteredData } = useLocation();
+    const { foodtype, state, city, priceRange, filteredData, setFilteredData } = useLocation();
     const { user, updateOrder, incrementOrder } = useUser();
 
     const [data, setData] = useState([])
+    const [addedFilters, setAddedFilters] = useState([])
 
     let result = []
 
@@ -36,15 +37,20 @@ export function MenuResults() {
         function FilterDownByType(intermediateArray) {
             return ByFoodType(intermediateArray);
         }
+        
+        // FilterDownByType(ByPrice());
 
         setFilteredData(FilterData())
 
-    }, [foodtype, state, city]);
+    }, [foodtype, state, city, priceRange]);
 
     function ByCountry() {
-
-        if (true) {
-
+        if (state.Abbreviation !== "none" || city !== ""){
+            if (!addedFilters.includes("location")){
+                setAddedFilters(prev => [...prev, "location"])
+            }
+        }
+        console.log('state', state)
             result = [...Object.values(data)].flat().filter((item, index) => {
 
                 if (index < [...Object.values(data)].flat().length - 1) {
@@ -53,33 +59,66 @@ export function MenuResults() {
                     return (cityOrStateMatched);
                 }
             })
-        }
+       
         return result;
     }
+    
 
-    function ByFoodType(cityFilteredArray) {
+    function ByFoodType(FilteredArray) {
         if (foodtype !== "Select a food category") {
-
-            return cityFilteredArray.filter((item) => {
+            if (!addedFilters.includes("foodtype")){
+                setAddedFilters(prev => [...prev, "foodtype"])
+            }
+            return FilteredArray.filter((item) => {
 
                 for (let i = 0; i < data[`${ foodtype }`].length; i++) {
                     if (item.id === data[`${ foodtype }`][i].id) {
                         return true
                     }
                 }
+                
                 return false;
             })
 
         } else {
-            return cityFilteredArray
+            return FilteredArray
         }
+    }
+    console.log("pricerange", priceRange)
+    console.log('addedFilters', addedFilters)
+
+    function ByPrice(FilteredArray) {
+        console.log("inside price")
+        if (priceRange.num > 0) {
+            console.log("inside price2")
+            return FilteredArray.filter(item => {
+
+                for (let i=0; i < data.price.length; i++) {
+                    if (priceRange.name > item.price) {
+                        return true
+                    } 
+                }
+                setAddedFilters(prev => [...prev, "price"])
+                return true
+            })
+        } else {
+            return FilteredArray
+        }
+    }
+
+    const tags = () => {
+        addedFilters.map((tag, index) => {
+            return <h2 key={index}>{tag}</h2>
+        })
     }
 
     return (
         <div>
             <h1 className='mt-10 text'>Results:</h1>
             <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 m-2">
-
+           
+            <h1>Results:</h1>
+            {tags}
                 {!filteredData?.length && <h1>Filter criteria cannot find a match.</h1>}
 
                 {filteredData && filteredData?.map((item, index) => (

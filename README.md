@@ -49,7 +49,7 @@ Please make sure to update tests as appropriate.
 
 ## Our Team
 
-- Kristi Hwang: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://linkedin.com/in/liaccountname)
+- Kristi Hwang: [GitHub](https://github.com/kristi-h) / [LinkedIn](https://www.linkedin.com/in/kristi-h-4542b38a/)
 - Laura Gieg/Frosty: [GitHub](https://github.com/frosty8104∂) / [LinkedIn](https://www.linkedin.com/in/laura-gieg-web-designer-developer/)
 - Yusuke Nagaoka: [GitHub](https://github.com/yusuken1121) / [LinkedIn](https://www.linkedin.com/in/yusuke-nagaoka)
 - Matthew Neie: [GitHub](https://github.com/MatthewNeie) / [LinkedIn](https://linkedin.com/in/matthew-neie) / [Website](https://matthew-neie.netlify.app/)
