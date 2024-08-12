@@ -70,10 +70,10 @@ export function HeaderDrawer() {
         </button>
       </DrawerTrigger>
       <DrawerContent className="bg-app-yellow">
-        <div className="mx-auto w-full max-w-sm">
+        <div className="mx-auto w-full max-w-sm overflow-auto order-scroll-hidden px-2">
           <DrawerHeader>
             <DrawerTitle>Order</DrawerTitle>
-            <DrawerDescription>Description</DrawerDescription>
+            <DrawerDescription>Your current order. Add funds below if necessary.</DrawerDescription>
           </DrawerHeader>
           <UserAccount />
 
@@ -84,7 +84,9 @@ export function HeaderDrawer() {
             onClickTipPrice={onClickTipPrice}
             totalPrice={totalPrice}
           />
-          <p>Check out amount: ${totalPrice + tipPrice}</p>
+          <p className="text-lg my-2">
+            Final check out amount: ${totalPrice + tipPrice}
+          </p>
 
           <Button variant="outline" className="w-3/4" onClick={onClickCheckout}>
             Checkout
